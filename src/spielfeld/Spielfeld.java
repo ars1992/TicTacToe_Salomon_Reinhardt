@@ -7,18 +7,25 @@ public class Spielfeld {
             {'4', '5', '6'},
             {'7', '8', '9'}
     };
-
     private int anzahlZuege = 0;
 
-    public void setBoard(int index){
-        return;
+    public void setBoard(int index, char symbol){
+        if ("123456789".indexOf((char) index) <= 0) {
+            this.anzahlZuege++;
+            if (index <= 3) {
+                this.board[0][(index - 1) % 3] = symbol;
+            } else if (index <= 6) {
+                this.board[1][(index - 1) % 3] = symbol;
+            } else {
+                this.board[2][(index - 1) % 3] = symbol;
+            }
+        }
     }
 
     public boolean istUnentschieden(){
         return this.anzahlZuege == 9 && ! istGewonnen();
     }
     public boolean istGewonnen(){
-        this.anzahlZuege++;
         if (istGewonnenHorizontal()) return true;
         if (istGewonnenVertikal()) return true;
         if (istGewonnenDiagonal('X')) return true;
@@ -52,8 +59,14 @@ public class Spielfeld {
                     zaehlerO++;
                 }
             }
+            if (zaehlerX == 3 || zaehlerO == 3){
+                return true;
+            } else {
+                zaehlerO = 0;
+                zaehlerX = 0;
+            }
         }
-        return zaehlerX == 3 || zaehlerO == 3;
+        return false;
     }
 
     private boolean istGewonnenHorizontal(){
@@ -68,9 +81,16 @@ public class Spielfeld {
                     zaehlerO++;
                 }
             }
+            if (zaehlerX == 3 || zaehlerO == 3){
+                return true;
+            } else {
+                zaehlerO = 0;
+                zaehlerX = 0;
+            }
         }
-        return zaehlerX == 3 || zaehlerO == 3;
+        return false;
     }
+
     public String toString(){
         // todo evt terminal clear
         StringBuilder spielfeld = new StringBuilder();
