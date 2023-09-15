@@ -9,6 +9,10 @@ public class Spielfeld {
     };
     private int anzahlZuege = 0;
 
+    public char[][] getBoard(){
+        return this.board;
+    }
+
     public void setBoard(int index, char symbol){
         if ("123456789".indexOf((char) index) <= 0) {
             this.anzahlZuege++;
