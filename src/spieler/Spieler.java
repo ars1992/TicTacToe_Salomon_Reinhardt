@@ -1,4 +1,5 @@
 package spieler;
+import spielfeld.Spielfeld;
 
 public abstract class Spieler {
 
@@ -10,5 +11,18 @@ public abstract class Spieler {
         this.symbol = symbol;
     }
 
+    public abstract int zugMachen();  //to-do???
+
+    public String getName(){
+        return this.name;
+    }
+
+    public char getSymbol(){
+        return this.symbol;
+    }
+
+    public void resetSpielfeld(Spielfeld spielfeld){
+
+    }
 
 }
