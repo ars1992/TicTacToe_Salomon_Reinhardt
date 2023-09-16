@@ -11,7 +11,7 @@ public abstract class Spieler {
         this.symbol = symbol;
     }
 
-    public abstract int zugMachen();  //to-do???
+    public abstract int zugMachen();
 
     public String getName(){
         return this.name;
@@ -20,9 +20,16 @@ public abstract class Spieler {
     public char getSymbol(){
         return this.symbol;
     }
-
+/*
     public void resetSpielfeld(Spielfeld spielfeld){
-
+        char[][] board = spielfeld.getBoard();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = (char) ('1' + i * 3 + j); // Setzt die Zahlen 1 bis 9 auf das Spielfeld.
+            }
+        }
+        spielfeld.setAnzahlZuege(0); // Methode setAnzahlZüge in main implementieren oder anzahlZüge public machen
     }
+    */
 
 }
