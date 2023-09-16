@@ -5,7 +5,7 @@ import spielfeld.Spielfeld;
 public class Validiere {
 
     public boolean validiereIndex(int index){
-        return index >= 0 && index <= 9;
+        return index >= 1 && index <= 9;
     }
 
     public boolean validiereObFeldFreiIst(int index, Spielfeld board){
