@@ -13,8 +13,8 @@ public class Spielfeld {
         return this.board;
     }
 
-    public void setBoard(int index, char symbol){
-        if ("123456789".indexOf((char) index) <= 0) {
+    public boolean setBoard(int index, char symbol){
+        if ("123456789".indexOf((char) (index + 48)) >= 0) {
             this.anzahlZuege++;
             if (index <= 3) {
                 this.board[0][(index - 1) % 3] = symbol;
@@ -23,7 +23,9 @@ public class Spielfeld {
             } else {
                 this.board[2][(index - 1) % 3] = symbol;
             }
+            return true;
         }
+        return false;
     }
 
     public boolean istUnentschieden(){
@@ -96,7 +98,6 @@ public class Spielfeld {
     }
 
     public String toString(){
-        // todo evt terminal clear
         StringBuilder spielfeld = new StringBuilder();
         for (int i = 0; i < 3; i++){
             if ( i >= 1)

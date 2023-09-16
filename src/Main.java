@@ -3,16 +3,25 @@ import validieren.Validiere;
 
 public class Main {
     public static void main(String[] args) {
+        debugSandro();
+    }
 
+    private static void debugSandro(){
         //debug
+
+        if ("123456789".indexOf((char) (48 + 1)) >= 0){
+            System.out.println("hallo " + ((char) (48 + 1)));
+        }
 
         Spielfeld s = new Spielfeld();
         Validiere v = new Validiere();
+
         System.out.println(s);
         char[] symbol = {'X', 'O'};
         int spieler = 0;
+        s.setBoard(1, 'O');
         for(int i = 1; i <= 9; i++){
-            if (v.validiereIndex(i))
+            if (v.validiereIndex(i) && v.validiereObFeldFreiIst(i, s))
                 s.setBoard(i, symbol[spieler]);
             if (s.istGewonnen()){
                 System.out.println(symbol[spieler]);
@@ -24,15 +33,6 @@ public class Main {
         System.out.println("ist gewonnen: " + s.istGewonnen());
         System.out.println("ist unentschieden: " + s.istUnentschieden());
         System.out.println("_______________________________________________________________________-");
-
-        Spielfeld s2 = new Spielfeld();
-        s2.setBoard(1, 'X');
-        System.out.println("feld 1 test: " + v.validiereObFeldFreiIst(1, s2));
-        s2.setBoard(5, 'O');
-        System.out.println("feld 5 test: " + v.validiereObFeldFreiIst(5, s2));
-        System.out.println("feld 9 test: " + v.validiereObFeldFreiIst(9, s2));
-
-
-
     }
 }
+
