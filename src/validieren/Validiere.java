@@ -9,11 +9,11 @@ public class Validiere {
     }
 
     public boolean validiereObFeldFreiIst(int index, Spielfeld board){
-        System.out.println("XO".indexOf(board.getBoard()[0][(index) % 3]) >= 0);
-        if (index <= 3 && "XO".indexOf(board.getBoard()[0][(index) % 3]) >= 0) {
-            return false;
-        } else if (index <= 6 && "XO".indexOf(board.getBoard()[1][(index) % 3]) >= 0) {
-            return false;
-        } else return index > 6 && "XO".indexOf(board.getBoard()[2][(index) % 3]) >= 0;
+        for (int i = 1; i <= 3; i++){
+            if (index <= i * 3 && "XO".indexOf(board.getBoard()[i - 1][(index - 1) % 3]) >= 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

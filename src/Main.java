@@ -3,12 +3,15 @@ import validieren.Validiere;
 
 public class Main {
     public static void main(String[] args) {
+
+        //debug
+
         Spielfeld s = new Spielfeld();
         Validiere v = new Validiere();
         System.out.println(s);
         char[] symbol = {'X', 'O'};
         int spieler = 0;
-        for(int i = 1; i < 13; i++){
+        for(int i = 1; i <= 9; i++){
             if (v.validiereIndex(i))
                 s.setBoard(i, symbol[spieler]);
             if (s.istGewonnen()){
@@ -23,13 +26,13 @@ public class Main {
         System.out.println("_______________________________________________________________________-");
 
         Spielfeld s2 = new Spielfeld();
-        if (v.validiereObFeldFreiIst(1, s2)){
-            s2.setBoard(1, 'X');
-        }
-        if (v.validiereObFeldFreiIst(1, s2)){
-            s2.setBoard(1, 'O');
-        }
         s2.setBoard(1, 'X');
-        System.out.println(s2);
+        System.out.println("feld 1 test: " + v.validiereObFeldFreiIst(1, s2));
+        s2.setBoard(5, 'O');
+        System.out.println("feld 5 test: " + v.validiereObFeldFreiIst(5, s2));
+        System.out.println("feld 9 test: " + v.validiereObFeldFreiIst(9, s2));
+
+
+
     }
 }
