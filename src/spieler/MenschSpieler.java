@@ -19,10 +19,10 @@ public class MenschSpieler extends Spieler{
         Validiere val = new Validiere();
         Scanner sc = new Scanner(System.in);
         try{
-        while(true){
-        System.out.println("Geben Sie die Zahl des Feldes ein, in das Sie setzen wollen!");
-        int feld = sc.nextInt();
-            if (val.validiereIndex(feld)) return feld;
+            while(true){
+                System.out.println("Geben Sie die Zahl des Feldes ein, in das Sie setzen wollen!");
+                int feld = sc.nextInt();
+                if (val.validiereIndex(feld)) return feld;
             }
         }catch (Exception e){
             System.out.println("Es wurde ein Fehler beim Validieren Ihres angegebenen Wertes festgestellt" + e.getMessage());
