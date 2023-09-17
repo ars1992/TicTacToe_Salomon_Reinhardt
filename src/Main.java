@@ -1,11 +1,25 @@
+import spieler.MenschSpieler;
+import spieler.Spieler;
 import spielfeld.Spielfeld;
 import validieren.Validiere;
 
 public class Main {
     public static void main(String[] args) {
-        debugSandro();
+        //debugSandro();
+        debugPascal();
     }
 
+    private static void debugPascal(){
+        // hier kannst du dein code testen
+        // Sandros methode in main einfach auskommentieren
+        Spieler menschSpieler = new MenschSpieler("Sandro der Große", 'X');
+        Spielfeld spielfeld = new Spielfeld();
+        // teste mal deine methode mit der eingabe h
+        System.out.println(spielfeld);
+        spielfeld.setBoard(menschSpieler.zugMachen(), menschSpieler.getSymbol());
+        System.out.println(spielfeld);
+
+    }
     private static void debugSandro(){
         //debug
 

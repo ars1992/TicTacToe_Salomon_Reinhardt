@@ -31,12 +31,12 @@ public class Spielfeld {
     public boolean istUnentschieden(){
         return this.anzahlZuege == 9 && ! istGewonnen();
     }
+
     public boolean istGewonnen(){
         if (istGewonnenHorizontal()) return true;
         if (istGewonnenVertikal()) return true;
         if (istGewonnenDiagonal('X')) return true;
         return istGewonnenDiagonal('O');
-
     }
 
     private boolean istGewonnenDiagonal(char symbol) {
