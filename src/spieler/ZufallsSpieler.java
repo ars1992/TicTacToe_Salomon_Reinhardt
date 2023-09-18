@@ -17,7 +17,9 @@ public class ZufallsSpieler extends Spieler{
         Random rand = new Random();
         int zufallszahl = rand.nextInt(9)+1;
         try {
-            if (val.validiereIndex(zufallszahl)) return zufallszahl;
+            while(true) {
+                if (val.validiereIndex(zufallszahl)) return zufallszahl;
+            }
         }catch(Exception e){
             System.out.println("Es wurde ein Fehler beim Zug von ZufallsSpieler " + e.getMessage());
         }
