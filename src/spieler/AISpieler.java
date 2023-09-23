@@ -4,15 +4,15 @@ import validieren.Validiere;
 
 public class AISpieler extends Spieler{
 
-    public AISpieler(String name, char symbol){
-        super(name, symbol);
+    public AISpieler(String name, char symbol, Spielfeld spielfeld){
+        super(name, symbol, spielfeld);
     }
 
 
 
     @Override
     public int zugMachen() {
-        MiniMaxResult bestMove = miniMax(spielfeld, this.getSymbol());  //einiges zu tun: spielfeld-objekt an den Spielerkonstruktor
+        MiniMaxResult bestMove = miniMax(this.getSpielfeld(), this.getSymbol());  //einiges zu tun: spielfeld-objekt an den Spielerkonstruktor
                                                                         //mitübergebn Teil der Lösung? Sandro muss darüber gucken.
         return bestMove.getMove();
     }
@@ -23,7 +23,7 @@ public class AISpieler extends Spieler{
 
         // Überprüfen, ob das Spiel vorbei ist
         if (spielfeld.istGewonnen()) {
-            if (spielfeld.istGewonnenVon(player)) {       // to-do: istGewonnenVon-methode schreiben
+            if (spielfeld.istGewonnen()) {       // to-do: istGewonnenVon-methode schreiben
                 return new MiniMaxResult(10); // Spieler gewinnt
             } else {
                 return new MiniMaxResult(-10); // Gegner gewinnt

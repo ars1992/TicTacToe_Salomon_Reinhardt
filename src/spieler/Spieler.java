@@ -3,12 +3,19 @@ import spielfeld.Spielfeld;
 
 public abstract class Spieler {
 
-    private String name;
-    private char symbol;
+    private final String name;
+    private final char symbol;
+    private Spielfeld spielfeld;
 
     public Spieler(String name, char symbol){
         this.name = name;
         this.symbol = symbol;
+    }
+
+    public Spieler(String name, char symbol, Spielfeld spielfeld){
+        this.name = name;
+        this.symbol = symbol;
+        this.spielfeld = spielfeld;
     }
 
     public abstract int zugMachen();
@@ -19,6 +26,10 @@ public abstract class Spieler {
 
     public char getSymbol(){
         return this.symbol;
+    }
+
+    public Spielfeld getSpielfeld(){
+        return this.spielfeld;
     }
 /*
     public void resetSpielfeld(Spielfeld spielfeld){

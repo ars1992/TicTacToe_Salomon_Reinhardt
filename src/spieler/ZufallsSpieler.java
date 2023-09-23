@@ -8,7 +8,7 @@ import java.util.Random;
 public class ZufallsSpieler extends Spieler{
 
     public ZufallsSpieler(String name, char symbol){
-        super(name,symbol);
+        super(name, symbol);
     }
 
     @Override
