@@ -1,7 +1,5 @@
 package spielfeld;
 
-import spieler.Spieler;
-
 public class Spielfeld {
 
     private char[][] board = {
@@ -15,9 +13,7 @@ public class Spielfeld {
         return this.board;
     }
 
-    public boolean setBoard(Spieler spieler){
-        int index = spieler.zugMachen();
-        char symbol = spieler.getSymbol();
+    public boolean setBoard(int index, char symbol){
         if ("123456789".indexOf((char) (index + 48)) >= 0) {
             this.anzahlZuege++;
             if (index <= 3) {
@@ -109,5 +105,9 @@ public class Spielfeld {
             spielfeld.append(this.board[i][0]).append("|").append(this.board[i][1]).append("|").append(this.board[i][2]).append("\n");
         }
         return spielfeld.toString();
+    }
+
+    public char[][] copyBoard(){
+        return this.board;
     }
 }

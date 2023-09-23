@@ -23,7 +23,7 @@ public class Main {
         System.out.println(spielfeld);
         int akktuellerSpieler = 0;
         while ( ! spielfeld.istGewonnen() || spielfeld.istUnentschieden()) {
-            spielfeld.setBoard(spieler[akktuellerSpieler]);
+            spielfeld.setBoard(spieler[akktuellerSpieler].zugMachen(), spieler[akktuellerSpieler].getSymbol());
             System.out.println(spielfeld);
             akktuellerSpieler = 1 - akktuellerSpieler;
         }
