@@ -43,6 +43,7 @@ public class Spielfeld {
     }
 
     private boolean istGewonnenDiagonal(char symbol) {
+        // ToDo bug fix
         int zaehler = 1;
         if (this.board[1][1] == symbol) {
             for (int i = 0; i < this.board.length; i += 2) {
@@ -59,8 +60,8 @@ public class Spielfeld {
     private boolean istGewonnenVertikal() {
         int zaehlerX = 0;
         int zaehlerO = 0;
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
+        for (int i = 0; i < this.board.length; i++){
+            for (int j = 0; j < this.board[i].length; j++){
                 if (this.board[j][i] == 'X'){
                     zaehlerX++;
                 }
@@ -81,8 +82,8 @@ public class Spielfeld {
     private boolean istGewonnenHorizontal(){
         int zaehlerX = 0;
         int zaehlerO = 0;
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
+        for (int i = 0; i < this.board.length; i++){
+            for (int j = 0; j < this.board[i].length; j++){
                 if (this.board[i][j] == 'X'){
                     zaehlerX++;
                 }
@@ -102,7 +103,7 @@ public class Spielfeld {
 
     public String toString(){
         StringBuilder spielfeld = new StringBuilder();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < this.board.length; i++){
             if ( i >= 1)
                 spielfeld.append("-+-+-\n");
             spielfeld.append(this.board[i][0]).append("|").append(this.board[i][1]).append("|").append(this.board[i][2]).append("\n");
