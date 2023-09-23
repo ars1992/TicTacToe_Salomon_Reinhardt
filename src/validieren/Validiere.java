@@ -2,9 +2,10 @@ package validieren;
 
 import spielfeld.Spielfeld;
 
+
 public class Validiere {
 
-    public boolean validiereIndex(int index){
+    public boolean validiereIndex(int index) {
         return index >= 1 && index <= 9;
     }
 

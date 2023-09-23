@@ -4,6 +4,5 @@ import spielfeld.Spielfeld;
 
 public class TEST {
 
-    // Temporäre test klasse
 
 }

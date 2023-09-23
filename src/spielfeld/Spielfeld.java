@@ -13,9 +13,12 @@ public class Spielfeld {
         return this.board;
     }
 
+    public void setAnzahlZuege(int i){
+        this.anzahlZuege = i;
+    }
+
     public boolean setBoard(int index, char symbol){
         if ("123456789".indexOf((char) (index + 48)) >= 0) {
-            this.anzahlZuege++;
             if (index <= 3) {
                 this.board[0][(index - 1) % 3] = symbol;
             } else if (index <= 6) {
@@ -40,7 +43,7 @@ public class Spielfeld {
     }
 
     private boolean istGewonnenDiagonal(char symbol) {
-        int zaehler = 0;
+        int zaehler = 1;
         if (this.board[1][1] == symbol) {
             for (int i = 0; i < 3; i += 2) {
                 for (int j = 0; j < 3; j += 2) {
@@ -50,6 +53,7 @@ public class Spielfeld {
                 }
             }
         }
+        System.out.println(zaehler);
         return zaehler == 3;
     }
 

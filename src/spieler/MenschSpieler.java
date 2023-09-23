@@ -3,34 +3,39 @@ package spieler;
 
 import spielfeld.Spielfeld;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import spielfeld.Spielfeld;
 import validieren.Validiere;
 
 public class MenschSpieler extends Spieler{
 
 
-    public MenschSpieler(String name, char symbol){
-        super(name, symbol);
+    public MenschSpieler(String name, char symbol, Spielfeld spielfeld){
+        super(name, symbol, spielfeld);
     }
 
     @Override
     public int zugMachen() {
         Validiere val = new Validiere();
         Scanner sc = new Scanner(System.in);
-        try{
-            while(true){
-                System.out.println("Geben Sie die Zahl des Feldes ein, in das Sie setzen wollen!");
-                int feld = sc.nextInt();
-                if (val.validiereIndex(feld)) return feld;
+        String fehlermeldung = "Ungültige eingabe!";
+        while (true) {
+            try {
+                System.out.print("Feld eingeben: ");
+                int eingabe = sc.nextInt();
+                if ( ! val.validiereIndex(eingabe)){
+                    System.out.println(fehlermeldung + " Index");
+                    continue;
+                }
+                if ( ! val.validiereObFeldFreiIst(eingabe, this.getSpielfeld())){
+                    System.out.println(fehlermeldung + " feld belegt");
+                    continue;
+                }
+                return eingabe;
+            } catch (InputMismatchException ex) {
+                sc.next();
+                System.out.println(fehlermeldung + " bitte nur zahlen eingeben");
             }
-        }catch (Exception e){
-            System.out.println("Es wurde ein Fehler beim Validieren Ihres angegebenen Wertes festgestellt" + e.getMessage());
-        }finally {
-            sc.close();
-        }return 0;
+        }
     }
-
-
-
 }
