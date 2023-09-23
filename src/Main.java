@@ -9,6 +9,8 @@ public class Main {
         debugPascal();
     }
 
+    //danke sandro
+
     private static void debugPascal(){
         // hier kannst du dein code testen
         // Sandros methode in main einfach auskommentieren
@@ -20,6 +22,7 @@ public class Main {
         System.out.println(spielfeld);
 
     }
+
     private static void debugSandro(){
         //debug
 
@@ -48,5 +51,7 @@ public class Main {
         System.out.println("ist unentschieden: " + s.istUnentschieden());
         System.out.println("_______________________________________________________________________-");
     }
+
+
 }
 
