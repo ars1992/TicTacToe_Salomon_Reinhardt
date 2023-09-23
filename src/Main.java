@@ -18,8 +18,9 @@ public class Main {
 
         Spielfeld spielfeld = new Spielfeld();
         Spieler menschSpieler = new MenschSpieler("Sandro der Große", 'O', spielfeld);
-        Spieler aiSpieler = new AISpieler("AI", 'X', spielfeld);
-        Spieler[] spieler = {menschSpieler, aiSpieler};
+        //Spieler aiSpieler = new AISpieler("AI", 'X', spielfeld);
+        Spieler menschSpieler2 = new MenschSpieler("Pascal der Kleine", 'X', spielfeld);
+        Spieler[] spieler = {menschSpieler, menschSpieler2};
         // teste mal deine methode mit der eingabe h
 
         int akktuellerSpieler = 0;
