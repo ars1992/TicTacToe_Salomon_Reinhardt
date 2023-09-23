@@ -27,6 +27,7 @@ public class ValidiererTest {
         for (int i = 1; i <= 9; i++){
             Assert.assertTrue(validiere.validiereObFeldFreiIst(i, spielfeld));
         }
+        System.out.println(spielfeld);
         char[] symbol = {'X', 'O'};
         int aktuellesSymbol = 0;
         for (int i = 1; i <= 9; i++){
@@ -34,6 +35,7 @@ public class ValidiererTest {
             Assert.assertFalse(validiere.validiereObFeldFreiIst(i, spielfeld));
             aktuellesSymbol = 1 - aktuellesSymbol;
         }
+        System.out.println(spielfeld);
     }
 
 }

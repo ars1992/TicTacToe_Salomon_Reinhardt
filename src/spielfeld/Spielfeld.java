@@ -45,15 +45,14 @@ public class Spielfeld {
     private boolean istGewonnenDiagonal(char symbol) {
         int zaehler = 1;
         if (this.board[1][1] == symbol) {
-            for (int i = 0; i < 3; i += 2) {
-                for (int j = 0; j < 3; j += 2) {
+            for (int i = 0; i < this.board.length; i += 2) {
+                for (int j = 0; j < this.board[i].length; j += 2) {
                     if (this.board[i][j] == symbol) {
                         zaehler++;
                     }
                 }
             }
         }
-        System.out.println(zaehler);
         return zaehler == 3;
     }
 

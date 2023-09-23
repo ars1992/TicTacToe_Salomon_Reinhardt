@@ -27,9 +27,11 @@ public class Main {
         int anzahlzuege = 0;
         while (true) {
             System.out.println(spielfeld);
-
+            System.out.println(spieler[akktuellerSpieler].getName() + " ist am Zug");
+            System.out.println("Mit dem Stein: " + spieler[akktuellerSpieler].getSymbol());
             spielfeld.setBoard(spieler[akktuellerSpieler].zugMachen(), spieler[akktuellerSpieler].getSymbol());
             spielfeld.setAnzahlZuege(++anzahlzuege);
+
             if (spielfeld.istGewonnen()){
                 System.out.println(spieler[akktuellerSpieler].getName());
                 break;
