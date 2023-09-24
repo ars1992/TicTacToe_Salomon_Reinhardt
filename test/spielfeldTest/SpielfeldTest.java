@@ -146,6 +146,15 @@ public class SpielfeldTest {
 
     @Test
     public void testResetBoard(){
-        // toDo
+        System.out.println("TEST resetBoard");
+        Spielfeld spielfeld = new Spielfeld();
+        char[][] board = {
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'}
+        };
+        spielfeld.setBoard(1, 'X');
+        spielfeld.resetBoard();
+        Assert.assertArrayEquals(spielfeld.getBoard(), board);
     }
 }
