@@ -7,11 +7,16 @@ import java.util.Scanner;
 
 public class UISpiel extends UIMenu{
 
-    private Spiel spiel;
+    private final Spiel SPIEL;
     private Scanner scanner = new Scanner(System.in);
+
+    private final String[][] NAMEN = {
+            {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
+            {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
+    };
     public UISpiel(){
         this.setMenuName("Spiel");
-        this.spiel = new Spiel();
+        this.SPIEL = new Spiel();
     }
 
     @Override
@@ -50,15 +55,18 @@ public class UISpiel extends UIMenu{
     }
 
     private void initialisiereComputerVsComputer() {
-        String computer1 = "AI-1";
-        String computer2 = "R2D2";
-        this.spiel.setSpieler(new AISpieler(computer1, 'X'), new AISpieler(computer2, 'O'));
+        String computer1 = this.NAMEN[0][(int) (Math.random() * this.NAMEN[0].length)];
+        String computer2 = this.NAMEN[1][(int) (Math.random() * this.NAMEN[1].length)];
+        this.SPIEL.setSpieler(new AISpieler(computer1, 'X'), new AISpieler(computer2, 'O'));
     }
 
     private void initialisiereSpielerVsComputer() {
         System.out.print("Geben Sie Ihren Namen ein: ");
         String name = this.scanner.next();
-        this.spiel.setSpieler(new MenschSpieler(name, 'X'), new AISpieler("Terminator", 'O'));
+        this.SPIEL.setSpieler(
+                new MenschSpieler(name, 'X'),
+                new AISpieler(this.NAMEN[1][(int) (Math.random() * this.NAMEN.length)], 'O')
+        );
     }
 
     private void initialisiereSpielerVsSpieler(){
@@ -66,10 +74,10 @@ public class UISpiel extends UIMenu{
         String name1 = this.scanner.next();
         System.out.print("Geben Sie Ihren Namen ein Spieler 2: ");
         String name2 = this.scanner.next();
-        this.spiel.setSpieler(new MenschSpieler(name1, 'X'), new  MenschSpieler(name2, 'O'));
+        this.SPIEL.setSpieler(new MenschSpieler(name1, 'X'), new MenschSpieler(name2, 'O'));
     }
 
     public Spiel getSpiel(){
-        return this.spiel;
+        return this.SPIEL;
     }
 }

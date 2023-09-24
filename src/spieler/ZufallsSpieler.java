@@ -13,12 +13,11 @@ public class ZufallsSpieler extends Spieler{
 
     @Override
     public int zugMachen() {
-        Validiere val = new Validiere();
         Random rand = new Random();
         int zufallszahl = rand.nextInt(9)+1;
         try {
             while(true) {
-                if (val.validiereIndex(zufallszahl)) return zufallszahl;
+                if (Validiere.validiereIndex(zufallszahl)) return zufallszahl;
             }
         }catch(Exception e){
             System.out.println("Es wurde ein Fehler beim Zug von ZufallsSpieler " + e.getMessage());

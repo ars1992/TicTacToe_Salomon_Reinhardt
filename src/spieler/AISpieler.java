@@ -8,12 +8,6 @@ public class AISpieler extends Spieler{
         super(name, symbol);
     }
 
-    public AISpieler(String name, char symbol, Spielfeld spielfeld){
-        super(name, symbol, spielfeld);
-    }
-
-
-
     @Override
     public int zugMachen() {
         MinMaxResult bestMove = miniMax(this.getSpielfeld(), this.getSymbol());  //einiges zu tun: spielfeld-objekt an den Spielerkonstruktor

@@ -28,7 +28,7 @@ public class Spiel {
 
             if (this.SPIELFELD.istGewonnen()){
                 System.out.println(SPIELFELD);
-                System.out.println("Gewonnen hat:" + SPIELER[akktuellerSpieler].getName());
+                System.out.println("Gewonnen hat: " + SPIELER[akktuellerSpieler].getName());
                 break;
             }
             if (this.SPIELFELD.istUnentschieden()){

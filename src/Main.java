@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         debugSandro();
         //debugPascal();
 
@@ -39,7 +40,14 @@ public class Main {
 
             if (menues.get(geweahltesMenu).getMenuName().equals("Spiel")){
                 UISpiel spiel = (UISpiel) menues.get(geweahltesMenu);
-                spiel.getSpiel().spielen();
+                boolean weiterSpielen = true;
+                while (weiterSpielen){
+                    spiel.getSpiel().spielen();
+                    System.out.println("Möchten Sie weiter spielen (j/n)");
+                    if ( ! scanner.next().equalsIgnoreCase("j")){
+                        weiterSpielen = false;
+                    }
+                }
             }
 
             if(menues.get(geweahltesMenu).istBeendet()){

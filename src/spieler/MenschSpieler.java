@@ -12,10 +12,6 @@ public class MenschSpieler extends Spieler{
         super(name, symbol);
     }
 
-    public MenschSpieler(String name, char symbol, Spielfeld spielfeld){
-        super(name, symbol, spielfeld);
-    }
-
     @Override
     public int zugMachen() {
         Scanner sc = new Scanner(System.in);
@@ -25,17 +21,17 @@ public class MenschSpieler extends Spieler{
                 System.out.print("Feld eingeben: ");
                 int eingabe = sc.nextInt();
                 if ( ! Validiere.validiereIndex(eingabe)){
-                    System.out.println(fehlermeldung + " Index");
+                    System.out.println(fehlermeldung + " Bitte Zahlen von 1 - 9");
                     continue;
                 }
                 if ( ! Validiere.validiereObFeldFreiIst(eingabe, this.getSpielfeld())){
-                    System.out.println(fehlermeldung + " feld belegt");
+                    System.out.println(fehlermeldung + " Feld ist belegt");
                     continue;
                 }
                 return eingabe;
             } catch (InputMismatchException ex) {
                 sc.next();
-                System.out.println(fehlermeldung + " bitte nur zahlen eingeben");
+                System.out.println(fehlermeldung + " Bitte nur zahlen eingeben");
             }
         }
     }
