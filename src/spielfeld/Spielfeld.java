@@ -43,18 +43,22 @@ public class Spielfeld {
     }
 
     private boolean istGewonnenDiagonal(char symbol) {
-        // ToDo bug fix
-        int zaehler = 1;
-        if (this.board[1][1] == symbol) {
-            for (int i = 0; i < this.board.length; i += 2) {
-                for (int j = 0; j < this.board[i].length; j += 2) {
-                    if (this.board[i][j] == symbol) {
-                        zaehler++;
-                    }
-                }
+        // ToDo bug fix#
+        char[] diagonale1 = {board[0][0], board[1][1], board[2][2]};
+        char[] diagonale2 = {board[0][2], board[1][1], board[2][0]};
+
+        for (char zeichen : diagonale1){
+            if (zeichen != symbol){
+                break;
             }
         }
-        return zaehler == 3;
+        for (char zeichen : diagonale2){
+            if (zeichen != symbol){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private boolean istGewonnenVertikal() {

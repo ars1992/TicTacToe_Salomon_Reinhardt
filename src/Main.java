@@ -33,6 +33,7 @@ public class Main {
             spielfeld.setAnzahlZuege(++anzahlzuege);
 
             if (spielfeld.istGewonnen()){
+                System.out.println("Gewonnen hat:");
                 System.out.println(spieler[akktuellerSpieler].getName());
                 break;
             }

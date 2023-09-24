@@ -10,11 +10,6 @@ public class Validiere {
     }
 
     public boolean validiereObFeldFreiIst(int index, Spielfeld board){
-        for (int i = 1; i <= 3; i++){
-            if (index <= i * 3 && "XO".indexOf(board.getBoard()[i - 1][(index - 1) % 3]) >= 0) {
-                return false;
-            }
-        }
-        return true;
+        return "XO".indexOf(board.getBoard()[(index - 1) / 3][(index - 1) % 3]) < 0;
     }
 }
