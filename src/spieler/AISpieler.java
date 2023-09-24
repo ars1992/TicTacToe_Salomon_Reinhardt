@@ -4,6 +4,10 @@ import validieren.Validiere;
 
 public class AISpieler extends Spieler{
 
+    public AISpieler(String name, char symbol) {
+        super(name, symbol);
+    }
+
     public AISpieler(String name, char symbol, Spielfeld spielfeld){
         super(name, symbol, spielfeld);
     }

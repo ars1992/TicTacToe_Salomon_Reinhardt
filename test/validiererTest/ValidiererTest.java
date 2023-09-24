@@ -11,28 +11,26 @@ public class ValidiererTest {
     @Test
     public void testValiedireIndex(){
         System.out.println("TEST validiereIndex");
-        Validiere validiere = new Validiere();
         for (int i = 1; i <= 9; i++){
-            Assert.assertTrue(validiere.validiereIndex(i));
+            Assert.assertTrue(Validiere.validiereIndex(i));
         }
-        Assert.assertFalse(validiere.validiereIndex(10));
-        Assert.assertFalse(validiere.validiereIndex(0));
+        Assert.assertFalse(Validiere.validiereIndex(10));
+        Assert.assertFalse(Validiere.validiereIndex(0));
     }
 
     @Test
     public void testvalidiereObFeldFreiIst(){
         System.out.println("TEST testvalidiereObFeldFreiIst");
-        Validiere validiere = new Validiere();
         Spielfeld spielfeld = new Spielfeld();
         for (int i = 1; i <= 9; i++){
-            Assert.assertTrue(validiere.validiereObFeldFreiIst(i, spielfeld));
+            Assert.assertTrue(Validiere.validiereObFeldFreiIst(i, spielfeld));
         }
         System.out.println(spielfeld);
         char[] symbol = {'X', 'O'};
         int aktuellesSymbol = 0;
         for (int i = 1; i <= 9; i++){
             spielfeld.setBoard(i, symbol[aktuellesSymbol]);
-            Assert.assertFalse(validiere.validiereObFeldFreiIst(i, spielfeld));
+            Assert.assertFalse(Validiere.validiereObFeldFreiIst(i, spielfeld));
             aktuellesSymbol = 1 - aktuellesSymbol;
         }
         System.out.println(spielfeld);

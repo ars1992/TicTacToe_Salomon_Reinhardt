@@ -1,3 +1,4 @@
+import spiel.Spiel;
 import spieler.AISpieler;
 import spieler.MenschSpieler;
 import spieler.Spieler;
@@ -15,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         debugSandro();
         //debugPascal();
+
     }
 
     //danke sandro
@@ -73,6 +75,11 @@ public class Main {
             System.out.println("Ihre Auswahl: " + eingabe);
             System.out.println(menues.get(geweahltesMenu).getMenuName());
             menues.get(geweahltesMenu).zeigeDialog();
+
+            if (menues.get(geweahltesMenu).getMenuName().equals("Spiel")){
+                UISpiel spiel = (UISpiel) menues.get(geweahltesMenu);
+                spiel.getSpiel().spielen();
+            }
 
             if(menues.get(geweahltesMenu).istBeendet()){
                 break;

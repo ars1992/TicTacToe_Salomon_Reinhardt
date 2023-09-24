@@ -19,7 +19,9 @@ public abstract class Spieler {
     }
 
     public abstract int zugMachen();
-
+    public void setSpielfeld(Spielfeld spielfeld){
+        this.spielfeld = spielfeld;
+    }
     public String getName(){
         return this.name;
     }
