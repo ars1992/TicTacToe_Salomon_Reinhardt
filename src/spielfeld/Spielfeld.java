@@ -1,5 +1,7 @@
 package spielfeld;
 
+import java.util.Arrays;
+
 public class Spielfeld {
 
     private char[][] board = {
@@ -47,18 +49,7 @@ public class Spielfeld {
         char[] diagonale1 = {board[0][0], board[1][1], board[2][2]};
         char[] diagonale2 = {board[0][2], board[1][1], board[2][0]};
 
-        for (char zeichen : diagonale1){
-            if (zeichen != symbol){
-                break;
-            }
-        }
-        for (char zeichen : diagonale2){
-            if (zeichen != symbol){
-                return false;
-            }
-        }
-
-        return true;
+        return Arrays.equals(diagonale1, new char[]{symbol, symbol, symbol}) || Arrays.equals(diagonale2, new char[]{symbol, symbol, symbol});
     }
 
     private boolean istGewonnenVertikal() {
