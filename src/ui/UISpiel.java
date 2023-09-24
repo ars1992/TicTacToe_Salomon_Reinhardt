@@ -4,7 +4,6 @@ package ui;
 import spiel.Spiel;
 import spieler.AISpieler;
 import spieler.MenschSpieler;
-import spieler.Spieler;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,6 +25,7 @@ public class UISpiel extends UIMenu{
         loop:
         while (true){
             try {
+                System.out.print("Auswahl: ");
                 int eingabe = this.scanner.nextInt();
                 switch (eingabe){
                     case 1 -> {
@@ -65,7 +65,11 @@ public class UISpiel extends UIMenu{
     }
 
     private void initialisiereSpielerVsSpieler(){
-
+        System.out.print("Geben Sie Ihren Namen ein Spieler 1: ");
+        String name1 = this.scanner.next();
+        System.out.print("Geben Sie Ihren Namen ein Spieler 2: ");
+        String name2 = this.scanner.next();
+        this.spiel.setSpieler(new MenschSpieler(name1, 'X'), new  MenschSpieler(name2, 'O'));
     }
 
     public Spiel getSpiel(){

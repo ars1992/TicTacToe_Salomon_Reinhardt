@@ -106,7 +106,11 @@ public class Spielfeld {
         return spielfeld.toString();
     }
 
-    public char[][] copyBoard(){
-        return this.board;
+    public void resetBoard(){
+        this.board = new char[][]{
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'}
+        };
     }
 }

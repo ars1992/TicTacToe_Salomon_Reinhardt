@@ -8,9 +8,6 @@ public class Spiel {
     private Spielfeld spielfeld = new Spielfeld();
     private Spieler[] spieler = new Spieler[2];
 
-//    public Spiel() {
-//        this.spielfeld = new Spielfeld();
-//    }
 
     public void setSpieler(Spieler spieler1, Spieler spieler2) {
         this.spieler[0] = spieler1;
@@ -30,8 +27,8 @@ public class Spiel {
             this.spielfeld.setAnzahlZuege(++anzahlzuege);
 
             if (this.spielfeld.istGewonnen()){
-                System.out.println("Gewonnen hat:");
-                System.out.println(spieler[akktuellerSpieler].getName());
+                System.out.println(spielfeld);
+                System.out.println("Gewonnen hat:" + spieler[akktuellerSpieler].getName());
                 break;
             }
             if (this.spielfeld.istUnentschieden()){
@@ -40,7 +37,7 @@ public class Spiel {
             }
             akktuellerSpieler = 1 - akktuellerSpieler;
         }
-        System.out.println(spielfeld);
+        this.spielfeld.resetBoard();
     }
 
 

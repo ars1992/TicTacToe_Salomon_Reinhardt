@@ -1,7 +1,6 @@
 package spielfeldTest;
 
 import spielfeld.Spielfeld;
-import validieren.Validiere;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -143,5 +142,10 @@ public class SpielfeldTest {
         spielfeld.setBoard(5, 'O');
         spielfeld.setBoard(7, 'O');
         Assert.assertTrue(spielfeld.istGewonnen());
+    }
+
+    @Test
+    public void testResetBoard(){
+        // toDo
     }
 }
