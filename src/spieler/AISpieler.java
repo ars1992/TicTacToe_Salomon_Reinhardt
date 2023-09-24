@@ -19,8 +19,6 @@ public class AISpieler extends Spieler{
 
 
     private MinMaxResult miniMax(Spielfeld spielfeld, char spieler) {
-        Validiere validator = new Validiere();
-
 
         // Überprüfen, ob das Spiel vorbei ist
         if (spielfeld.istGewonnen()) {
@@ -38,7 +36,7 @@ public class AISpieler extends Spieler{
         int bestScore = (spieler == this.getSymbol()) ? -Integer.MAX_VALUE : Integer.MAX_VALUE;
 
         for (int i = 1; i <= 9; i++) {
-            if (validator.validiereIndex(i) && validator.validiereObFeldFreiIst(i, spielfeld)) {
+            if (Validiere.validiereIndex(i) && Validiere.validiereObFeldFreiIst(i, spielfeld)) {
                 // Zug ausprobieren
                 spielfeld.setBoard(i, spieler);
 

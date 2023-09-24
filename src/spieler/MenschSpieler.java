@@ -16,18 +16,17 @@ public class MenschSpieler extends Spieler{
 
     @Override
     public int zugMachen() {
-        Validiere val = new Validiere();
         Scanner sc = new Scanner(System.in);
         String fehlermeldung = "Ungültige eingabe!";
         while (true) {
             try {
                 System.out.print("Feld eingeben: ");
                 int eingabe = sc.nextInt();
-                if ( ! val.validiereIndex(eingabe)){
+                if ( ! Validiere.validiereIndex(eingabe)){
                     System.out.println(fehlermeldung + " Index");
                     continue;
                 }
-                if ( ! val.validiereObFeldFreiIst(eingabe, this.getSpielfeld())){
+                if ( ! Validiere.validiereObFeldFreiIst(eingabe, this.getSpielfeld())){
                     System.out.println(fehlermeldung + " feld belegt");
                     continue;
                 }
