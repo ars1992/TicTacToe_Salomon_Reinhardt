@@ -17,9 +17,10 @@ public class Main {
         // Sandros methode in main einfach auskommentieren
 
         Spielfeld spielfeld = new Spielfeld();
-        Spieler menschSpieler = new MenschSpieler("Sandro der Große", 'O', spielfeld);
-        //Spieler aiSpieler = new AISpieler("AI", 'X', spielfeld);
-        Spieler menschSpieler2 = new MenschSpieler("Pascal der Kleine", 'X', spielfeld);
+        //Spieler menschSpieler = new MenschSpieler("Sandro der Große", 'O', spielfeld);
+        Spieler menschSpieler2  = new AISpieler("AI", 'X', spielfeld);
+        Spieler menschSpieler  = new AISpieler("AI-2", 'O', spielfeld);
+        //Spieler menschSpieler2 = new MenschSpieler("Pascal der Kleine", 'X', spielfeld);
         Spieler[] spieler = {menschSpieler, menschSpieler2};
         // teste mal deine methode mit der eingabe h
 
