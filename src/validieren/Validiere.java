@@ -1,7 +1,5 @@
 package validieren;
-
 import spielfeld.Spielfeld;
-
 
 public class Validiere {
 

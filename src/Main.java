@@ -29,6 +29,7 @@ public class Main {
                 UIInterface menu = menues.get(i);
                 System.out.println(menuPunkt + ": " + menu.getMenuName());
             }
+
             System.out.print("Auswahl: ");
             int eingabe = scanner.nextInt();
             int geweahltesMenu = --eingabe;

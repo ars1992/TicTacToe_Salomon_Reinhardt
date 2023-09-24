@@ -1,6 +1,4 @@
 package ui;
-
-
 import spiel.Spiel;
 import spieler.AISpieler;
 import spieler.MenschSpieler;
@@ -44,7 +42,6 @@ public class UISpiel extends UIMenu{
                         System.out.println("Auswahl nicht Möglich");
                     }
                 }
-
             } catch (InputMismatchException ex){
                 scanner.next();
                 System.out.println("Bitte nur Zahlen eingeben");
