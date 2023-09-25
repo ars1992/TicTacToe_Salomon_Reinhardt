@@ -6,17 +6,18 @@ import org.junit.Test;
 
 public class SpielfeldTest {
 
+    private char[][] startBoard = {
+            {'1', '2', '3'},
+            {'4', '5', '6'},
+            {'7', '8', '9'}
+    };
+
     @Test
     public void testGetBoard(){
         System.out.println("TEST testGetBoard");
-        char[][] board = {
-                {'1', '2', '3'},
-                {'4', '5', '6'},
-                {'7', '8', '9'}
-        };
         Spielfeld spielfeld = new Spielfeld();
         Assert.assertNotNull(spielfeld.getBoard());
-        Assert.assertArrayEquals(spielfeld.getBoard(), board);
+        Assert.assertArrayEquals(spielfeld.getBoard(), this.startBoard);
     }
 
     @Test
@@ -148,13 +149,8 @@ public class SpielfeldTest {
     public void testResetBoard(){
         System.out.println("TEST resetBoard");
         Spielfeld spielfeld = new Spielfeld();
-        char[][] board = {
-                {'1', '2', '3'},
-                {'4', '5', '6'},
-                {'7', '8', '9'}
-        };
         spielfeld.setBoard(1, 'X');
         spielfeld.resetBoard();
-        Assert.assertArrayEquals(spielfeld.getBoard(), board);
+        Assert.assertArrayEquals(spielfeld.getBoard(), this.startBoard);
     }
 }
