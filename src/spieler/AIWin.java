@@ -20,7 +20,15 @@ public class AIWin extends Spieler{
         System.out.printf("ROW: %d COL: %d\n\n",
                 bestMove.row, bestMove.col );
 
-        return 5;
+        return feldBerechnen();
+    }
+
+    private int feldBerechnen(){
+        Move bestMove = findBestMove(getSpielfeld().getBoard());
+
+        if (bestMove.row == 0) return bestMove.col + 1;
+        if (bestMove.row == 1) return bestMove.col + 4;
+        return bestMove.col + 7;
     }
 
     // This function returns true if there are moves
@@ -30,7 +38,7 @@ public class AIWin extends Spieler{
     {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
-                if (board[i][j] == '_')
+                if ("123456789".indexOf(board[i][j]) >= 0)
                     return true;
         return false;
     }
@@ -114,14 +122,15 @@ public class AIWin extends Spieler{
         if (isMax)
         {
             int best = -1000;
-
+            int x = 0;
             // Traverse all cells
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
+                    x++;
                     // Check if cell is empty
-                    if (board[i][j]=='_')
+                    if ("123456789".indexOf(board[i][j]) >= 0)
                     {
                         // Make the move
                         board[i][j] = player;
@@ -132,7 +141,8 @@ public class AIWin extends Spieler{
                                 depth + 1, !isMax));
 
                         // Undo the move
-                        board[i][j] = '_';
+                        //board[i][j] = '_';
+                        board[i][j] = (char) ((x + 48));
                     }
                 }
             }
@@ -144,13 +154,15 @@ public class AIWin extends Spieler{
         {
             int best = 1000;
 
+            int x = 0;
             // Traverse all cells
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
+                    x++;
                     // Check if cell is empty
-                    if (board[i][j] == '_')
+                    if ("123456789".indexOf(board[i][j]) >= 0)
                     {
                         // Make the move
                         board[i][j] = opponent;
@@ -161,7 +173,8 @@ public class AIWin extends Spieler{
                                 depth + 1, !isMax));
 
                         // Undo the move
-                        board[i][j] = '_';
+                        //board[i][j] = '_';
+                        board[i][j] = (char) ((x + 48));
                     }
                 }
             }
@@ -171,7 +184,7 @@ public class AIWin extends Spieler{
 
     // This will return the best possible
 // move for the player
-    static Move findBestMove(char board[][])
+    static Move findBestMove(char[][] board)
     {
         int bestVal = -1000;
         Move bestMove = new Move();
@@ -181,12 +194,14 @@ public class AIWin extends Spieler{
         // Traverse all cells, evaluate minimax function
         // for all empty cells. And return the cell
         // with optimal value.
+        int x = 0;
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
+                x++;
                 // Check if cell is empty
-                if (board[i][j] == '_')
+                if ("123456789".indexOf(board[i][j]) >= 0)
                 {
                     // Make the move
                     board[i][j] = player;
@@ -196,7 +211,8 @@ public class AIWin extends Spieler{
                     int moveVal = minimax(board, 0, false);
 
                     // Undo the move
-                    board[i][j] = '_';
+
+                    board[i][j] = (char) ((x + 48));
 
                     // If the value of the current move is
                     // more than the best value, then update
@@ -215,16 +231,6 @@ public class AIWin extends Spieler{
                 "is : %d\n\n", bestVal);
 
         return bestMove;
-    }
-
-    // Driver code
-    public static void main(String[] args)
-    {
-        char board[][] = {{ 'x', 'o', 'x' },
-                { 'o', 'o', 'x' },
-                { '_', '_', '_' }};
-
-
     }
 }
 
