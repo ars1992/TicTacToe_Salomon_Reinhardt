@@ -52,6 +52,7 @@ public class UISpiel extends UIMenu{
                 System.out.println("Bitte nur Zahlen eingeben");
             }
         }
+        System.out.println("Viel Spass beim Spielen");
     }
 
     private void initialisiereComputerVsComputer() {
