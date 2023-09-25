@@ -12,11 +12,6 @@ public abstract class Spieler {
         this.symbol = symbol;
     }
 
-    public Spieler(String name, char symbol, Spielfeld spielfeld){
-        this.name = name;
-        this.symbol = symbol;
-        this.spielfeld = spielfeld;
-    }
 
     public abstract int zugMachen();
     public void setSpielfeld(Spielfeld spielfeld){
