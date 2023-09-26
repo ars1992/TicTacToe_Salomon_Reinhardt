@@ -7,7 +7,7 @@ public class Validiere {
         return index >= 1 && index <= 9;
     }
 
-    public static boolean validiereObFeldFreiIst(int index, Spielfeld board){
-        return "XO".indexOf(board.getBoard()[(index - 1) / 3][(index - 1) % 3]) < 0;
+    public static boolean validiereObFeldFreiIst(int index, Spielfeld spielfeld){
+        return "XO".indexOf(spielfeld.getBoard()[(index - 1) / 3][(index - 1) % 3]) < 0;
     }
 }
