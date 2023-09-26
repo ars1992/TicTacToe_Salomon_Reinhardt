@@ -67,7 +67,7 @@ public class UISpiel extends UIMenu{
         String name = this.scanner.next();
         this.SPIEL.setSpieler(
                 new MenschSpieler(name, 'O'),
-                new AIWin(this.NAMEN[1][(int) (Math.random() * this.NAMEN.length)], 'X')
+                new AIWin(this.NAMEN[0][(int) (Math.random() * this.NAMEN.length)], 'X')
         );
     }
 
