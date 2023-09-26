@@ -11,7 +11,7 @@ public class Spielfeld {
     };
     private int anzahlZuege = 0;
 
-    public char[][] getBoard(){
+    public Spielfeld getBoard(){
         return this.board;
     }
 
