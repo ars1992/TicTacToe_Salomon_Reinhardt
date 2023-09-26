@@ -6,7 +6,7 @@ import java.util.Random;
 
 
 public class ZufallsSpieler extends Spieler{
-
+    int zufallszahl;
     public ZufallsSpieler(String name, char symbol){
         super(name, symbol);
     }
@@ -14,7 +14,7 @@ public class ZufallsSpieler extends Spieler{
     @Override
     public int zugMachen() {
         Random rand = new Random();
-        int zufallszahl = rand.nextInt(9)+1;
+        zufallszahl = rand.nextInt(9)+1;
         try {
             while(true) {
                 if (Validiere.validiereIndex(zufallszahl) && Validiere.validiereObFeldFreiIst(zufallszahl, this.getSpielfeld())) return zufallszahl;

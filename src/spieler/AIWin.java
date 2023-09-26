@@ -1,5 +1,6 @@
 package spieler;
 
+
 /**
  * Von https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
  * an unser Programm angepasst
@@ -21,20 +22,28 @@ public class AIWin extends Spieler{
         } else {
             this.OPPONENT = 'X';
         }
+
     }
+
+
+
 
     @Override
     public int zugMachen() {
         Move bestMove = findBestMove(getSpielfeld().getBoard());
+
+
         if (bestMove.row == 0) return bestMove.col + 1;
         if (bestMove.row == 1) return bestMove.col + 4;
         return bestMove.col + 7;
     }
 
     // This function returns true if there are moves
+
     // remaining on the board. It returns false if
     // there are no moves left to play.
     private boolean isMovesLeft(char[][] board)
+
     {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
@@ -44,8 +53,10 @@ public class AIWin extends Spieler{
     }
 
     // This is the evaluation function as discussed
+
     // in the previous article ( http://goo.gl/sJgv68 )
     private int evaluate(char[][] b)
+
     {
         // Checking for Rows for X or O victory.
         for (int row = 0; row < 3; row++)
@@ -98,8 +109,10 @@ public class AIWin extends Spieler{
     // This is the minimax function. It considers all
 // the possible ways the game can go and returns
 // the value of the board
+
     private int minimax(char[][] board,
                         int depth, Boolean isMax)
+
     {
         int score = evaluate(board);
 
@@ -224,6 +237,8 @@ public class AIWin extends Spieler{
                 }
             }
         }
+
+
         return bestMove;
     }
 }
