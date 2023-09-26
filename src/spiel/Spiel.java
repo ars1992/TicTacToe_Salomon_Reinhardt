@@ -9,6 +9,7 @@ public class Spiel {
     private final Spieler[] SPIELER = new Spieler[2];
 
 
+    // todo konstruktor
     public void setSpieler(Spieler spieler1, Spieler spieler2) {
         this.SPIELER[0] = spieler1;
         this.SPIELER[0].setSpielfeld(this.SPIELFELD);
@@ -18,9 +19,10 @@ public class Spiel {
 
     /**
      * Gibt den Spielverlauf für die Spieler vor.
+     * Spieler müssen über setSpieler gesetet werden
      */
     public void spielen(){
-        int akktuellerSpieler = Math.random() < 0.5 ? 0 : 1;
+        int akktuellerSpieler = Math.random() <= 0.499999999995 ? 0 : 1;
         int anzahlzuege = 0;
         while (true) {
             System.out.println(this.SPIELFELD);
@@ -30,7 +32,6 @@ public class Spiel {
             this.SPIELFELD.setAnzahlZuege(++anzahlzuege);
 
             if (this.SPIELFELD.istGewonnen()){
-                System.out.println(SPIELFELD);
                 System.out.println("Gewonnen hat: " + SPIELER[akktuellerSpieler].getName());
                 break;
             }
@@ -40,6 +41,7 @@ public class Spiel {
             }
             akktuellerSpieler = 1 - akktuellerSpieler;
         }
+        System.out.println(SPIELFELD);
         this.SPIELFELD.resetBoard();
     }
 }
