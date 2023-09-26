@@ -43,13 +43,12 @@ public class Main {
                 boolean weiterSpielen = true;
                 while (weiterSpielen){
                     spiel.getSpiel().spielen();
-                    System.out.println("Möchten Sie weiter spielen (j/n)");
+                    System.out.print("Möchten Sie weiter spielen (j/n): ");
                     if ( ! scanner.next().equalsIgnoreCase("j")){
                         weiterSpielen = false;
                     }
                 }
             }
-
             if(menues.get(geweahltesMenu).istBeendet()){
                 break;
             }
