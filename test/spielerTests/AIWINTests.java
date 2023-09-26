@@ -1,6 +1,5 @@
 package spielerTests;
-import spielfeld.Spielfeld;
-import spieler.AIWin;
+import spieler.GewinnerSpieler;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -17,7 +16,7 @@ public class AIWINTests {
     @Test
     public void testMacheZug(){
         System.out.println("Testversuch des Menschspielers,der einen Zug zu machen will:");
-        AIWin kalkulator = new AIWin("Yury", 'X');
+        GewinnerSpieler kalkulator = new GewinnerSpieler("Yury", 'X');
 
         String input = "10";
         System.setIn(new ByteArrayInputStream(input.getBytes()));

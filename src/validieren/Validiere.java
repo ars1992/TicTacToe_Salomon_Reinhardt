@@ -12,7 +12,7 @@ public class Validiere {
     }
 
     /**
-     * Prüft ob das gewählte Feld frei ist.
+     * Prüft, ob das gewählte Feld frei ist.
      * @param index
      * @param spielfeld
      * @return boolean

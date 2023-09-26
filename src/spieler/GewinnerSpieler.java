@@ -5,7 +5,7 @@ package spieler;
  * Von https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
  * an unser Programm angepasst
  */
-public class AIWin extends Spieler{
+public class GewinnerSpieler extends Spieler{
 
     private static class Move
     {
@@ -14,7 +14,7 @@ public class AIWin extends Spieler{
 
     private final char PLAYER;
     private final char OPPONENT;
-    public AIWin(String name, char symbol) {
+    public GewinnerSpieler(String name, char symbol) {
         super(name, symbol);
         this.PLAYER = symbol;
         if (symbol == 'X'){
@@ -25,14 +25,9 @@ public class AIWin extends Spieler{
 
     }
 
-
-
-
     @Override
     public int zugMachen() {
         Move bestMove = findBestMove(getSpielfeld().getBoard());
-
-
         if (bestMove.row == 0) return bestMove.col + 1;
         if (bestMove.row == 1) return bestMove.col + 4;
         return bestMove.col + 7;
@@ -107,8 +102,8 @@ public class AIWin extends Spieler{
     }
 
     // This is the minimax function. It considers all
-// the possible ways the game can go and returns
-// the value of the board
+    // the possible ways the game can go and returns
+    // the value of the board
 
     private int minimax(char[][] board,
                         int depth, Boolean isMax)
@@ -194,7 +189,7 @@ public class AIWin extends Spieler{
     }
 
     // This will return the best possible
-// move for the player
+    // move for the player
     private Move findBestMove(char[][] board)
     {
         int bestVal = -1000;
@@ -237,8 +232,6 @@ public class AIWin extends Spieler{
                 }
             }
         }
-
-
         return bestMove;
     }
 }
