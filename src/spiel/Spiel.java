@@ -16,6 +16,9 @@ public class Spiel {
         this.SPIELER[1].setSpielfeld(this.SPIELFELD);
     }
 
+    /**
+     * Gibt den Spielverlauf für die Spieler vor.
+     */
     public void spielen(){
         int akktuellerSpieler = Math.random() < 0.5 ? 0 : 1;
         int anzahlzuege = 0;
