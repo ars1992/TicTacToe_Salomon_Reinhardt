@@ -17,7 +17,7 @@ public class ZufallsSpieler extends Spieler{
         zufallszahl = rand.nextInt(9)+1;
         try {
             while(true) {
-                if (Validiere.validiereIndex(zufallszahl) && Validiere.validiereObFeldFreiIst(zufallszahl, this.getSpielfeld().getBoard())) return zufallszahl;
+                if (Validiere.validiereIndex(zufallszahl) && Validiere.validiereObFeldFreiIst(zufallszahl, spielfeld.returnSpielfeld().getBoard())) return zufallszahl;
             }
         }catch(Exception e){
             System.out.println("Es wurde ein Fehler beim Zug von ZufallsSpieler " + e.getMessage());
