@@ -1,6 +1,7 @@
 package ui;
 import spiel.Spiel;
 import spieler.AISpieler;
+import spieler.AIWin;
 import spieler.MenschSpieler;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -58,15 +59,15 @@ public class UISpiel extends UIMenu{
     private void initialisiereComputerVsComputer() {
         String computer1 = this.NAMEN[0][(int) (Math.random() * this.NAMEN[0].length)];
         String computer2 = this.NAMEN[1][(int) (Math.random() * this.NAMEN[1].length)];
-        this.SPIEL.setSpieler(new AISpieler(computer1, 'X'), new AISpieler(computer2, 'O'));
+        this.SPIEL.setSpieler(new AIWin(computer1, 'X'), new AISpieler(computer2, 'O'));
     }
 
     private void initialisiereSpielerVsComputer() {
         System.out.print("Geben Sie Ihren Namen ein: ");
         String name = this.scanner.next();
         this.SPIEL.setSpieler(
-                new MenschSpieler(name, 'X'),
-                new AISpieler(this.NAMEN[1][(int) (Math.random() * this.NAMEN.length)], 'O')
+                new MenschSpieler(name, 'O'),
+                new AIWin(this.NAMEN[0][(int) (Math.random() * this.NAMEN.length)], 'X')
         );
     }
 
