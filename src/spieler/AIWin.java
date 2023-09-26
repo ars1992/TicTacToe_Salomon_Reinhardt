@@ -3,24 +3,32 @@ package spieler;
 class Move
 {
     int row, col;
+
+
 };
 
 public class AIWin extends Spieler{
 
-    static char player = 'X', opponent = 'O';
+    private char player = 'X', opponent = 'O';
+
+    //private char symbol;
+
     public AIWin(String name, char symbol) {
         super(name, symbol);
+        this.player = symbol;
     }
+
+
+
 
     @Override
     public int zugMachen() {
         Move bestMove = findBestMove(getSpielfeld().getBoard());
 
-        System.out.printf("The Optimal Move is :\n");
-        System.out.printf("ROW: %d COL: %d\n\n",
-                bestMove.row, bestMove.col );
+        if (bestMove.row == 0) return bestMove.col + 1;
+        if (bestMove.row == 1) return bestMove.col + 4;
+        return bestMove.col + 7;
 
-        return feldBerechnen();
     }
 
     private int feldBerechnen(){
@@ -34,7 +42,7 @@ public class AIWin extends Spieler{
     // This function returns true if there are moves
 // remaining on the board. It returns false if
 // there are no moves left to play.
-    static Boolean isMovesLeft(char board[][])
+    private boolean isMovesLeft(char board[][])
     {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
@@ -45,7 +53,7 @@ public class AIWin extends Spieler{
 
     // This is the evaluation function as discussed
 // in the previous article ( http://goo.gl/sJgv68 )
-    static int evaluate(char b[][])
+    private int evaluate(char b[][])
     {
         // Checking for Rows for X or O victory.
         for (int row = 0; row < 3; row++)
@@ -98,7 +106,7 @@ public class AIWin extends Spieler{
     // This is the minimax function. It considers all
 // the possible ways the game can go and returns
 // the value of the board
-    static int minimax(char board[][],
+    private int minimax(char board[][],
                        int depth, Boolean isMax)
     {
         int score = evaluate(board);
@@ -184,7 +192,7 @@ public class AIWin extends Spieler{
 
     // This will return the best possible
 // move for the player
-    static Move findBestMove(char[][] board)
+    private Move findBestMove(char[][] board)
     {
         int bestVal = -1000;
         Move bestMove = new Move();
@@ -227,8 +235,6 @@ public class AIWin extends Spieler{
             }
         }
 
-        System.out.printf("The value of the best Move " +
-                "is : %d\n\n", bestVal);
 
         return bestMove;
     }
