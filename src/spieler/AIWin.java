@@ -1,21 +1,28 @@
 package spieler;
 
-class Move
-{
-    int row, col;
 
-
-};
-
+/**
+ * Von https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
+ * an unser Programm angepasst
+ */
 public class AIWin extends Spieler{
 
-    private char player = 'X', opponent = 'O';
+    private static class Move
+    {
+        int row, col;
+    };
 
-    //private char symbol;
-
+    private final char PLAYER;
+    private final char OPPONENT;
     public AIWin(String name, char symbol) {
         super(name, symbol);
-        this.player = symbol;
+        this.PLAYER = symbol;
+        if (symbol == 'X'){
+            this.OPPONENT = 'O';
+        } else {
+            this.OPPONENT = 'X';
+        }
+
     }
 
 
@@ -25,14 +32,6 @@ public class AIWin extends Spieler{
     public int zugMachen() {
         Move bestMove = findBestMove(getSpielfeld().getBoard());
 
-        if (bestMove.row == 0) return bestMove.col + 1;
-        if (bestMove.row == 1) return bestMove.col + 4;
-        return bestMove.col + 7;
-
-    }
-
-    private int feldBerechnen(){
-        Move bestMove = findBestMove(getSpielfeld().getBoard());
 
         if (bestMove.row == 0) return bestMove.col + 1;
         if (bestMove.row == 1) return bestMove.col + 4;
@@ -40,9 +39,11 @@ public class AIWin extends Spieler{
     }
 
     // This function returns true if there are moves
-// remaining on the board. It returns false if
-// there are no moves left to play.
-    private boolean isMovesLeft(char board[][])
+
+    // remaining on the board. It returns false if
+    // there are no moves left to play.
+    private boolean isMovesLeft(char[][] board)
+
     {
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
@@ -52,8 +53,10 @@ public class AIWin extends Spieler{
     }
 
     // This is the evaluation function as discussed
-// in the previous article ( http://goo.gl/sJgv68 )
-    private int evaluate(char b[][])
+
+    // in the previous article ( http://goo.gl/sJgv68 )
+    private int evaluate(char[][] b)
+
     {
         // Checking for Rows for X or O victory.
         for (int row = 0; row < 3; row++)
@@ -61,9 +64,9 @@ public class AIWin extends Spieler{
             if (b[row][0] == b[row][1] &&
                     b[row][1] == b[row][2])
             {
-                if (b[row][0] == player)
+                if (b[row][0] == this.PLAYER)
                     return +10;
-                else if (b[row][0] == opponent)
+                else if (b[row][0] == this.OPPONENT)
                     return -10;
             }
         }
@@ -74,10 +77,10 @@ public class AIWin extends Spieler{
             if (b[0][col] == b[1][col] &&
                     b[1][col] == b[2][col])
             {
-                if (b[0][col] == player)
+                if (b[0][col] == this.PLAYER)
                     return +10;
 
-                else if (b[0][col] == opponent)
+                else if (b[0][col] == this.OPPONENT)
                     return -10;
             }
         }
@@ -85,17 +88,17 @@ public class AIWin extends Spieler{
         // Checking for Diagonals for X or O victory.
         if (b[0][0] == b[1][1] && b[1][1] == b[2][2])
         {
-            if (b[0][0] == player)
+            if (b[0][0] == this.PLAYER)
                 return +10;
-            else if (b[0][0] == opponent)
+            else if (b[0][0] == this.OPPONENT)
                 return -10;
         }
 
         if (b[0][2] == b[1][1] && b[1][1] == b[2][0])
         {
-            if (b[0][2] == player)
+            if (b[0][2] == this.PLAYER)
                 return +10;
-            else if (b[0][2] == opponent)
+            else if (b[0][2] == this.OPPONENT)
                 return -10;
         }
 
@@ -106,8 +109,10 @@ public class AIWin extends Spieler{
     // This is the minimax function. It considers all
 // the possible ways the game can go and returns
 // the value of the board
-    private int minimax(char board[][],
-                       int depth, Boolean isMax)
+
+    private int minimax(char[][] board,
+                        int depth, Boolean isMax)
+
     {
         int score = evaluate(board);
 
@@ -123,7 +128,7 @@ public class AIWin extends Spieler{
 
         // If there are no more moves and
         // no winner then it is a tie
-        if (isMovesLeft(board) == false)
+        if (!isMovesLeft(board))
             return 0;
 
         // If this maximizer's move
@@ -141,7 +146,7 @@ public class AIWin extends Spieler{
                     if ("123456789".indexOf(board[i][j]) >= 0)
                     {
                         // Make the move
-                        board[i][j] = player;
+                        board[i][j] = this.PLAYER;
 
                         // Call minimax recursively and choose
                         // the maximum value
@@ -149,7 +154,6 @@ public class AIWin extends Spieler{
                                 depth + 1, !isMax));
 
                         // Undo the move
-                        //board[i][j] = '_';
                         board[i][j] = (char) ((x + 48));
                     }
                 }
@@ -173,7 +177,7 @@ public class AIWin extends Spieler{
                     if ("123456789".indexOf(board[i][j]) >= 0)
                     {
                         // Make the move
-                        board[i][j] = opponent;
+                        board[i][j] = this.OPPONENT;
 
                         // Call minimax recursively and choose
                         // the minimum value
@@ -181,7 +185,6 @@ public class AIWin extends Spieler{
                                 depth + 1, !isMax));
 
                         // Undo the move
-                        //board[i][j] = '_';
                         board[i][j] = (char) ((x + 48));
                     }
                 }
@@ -212,7 +215,7 @@ public class AIWin extends Spieler{
                 if ("123456789".indexOf(board[i][j]) >= 0)
                 {
                     // Make the move
-                    board[i][j] = player;
+                    board[i][j] = this.PLAYER;
 
                     // compute evaluation function for this
                     // move.

@@ -19,7 +19,7 @@ public class Spielfeld {
         this.anzahlZuege = i;
     }
 
-    public boolean setBoard(int index, char symbol){
+    public void setBoard(int index, char symbol){
         if ("123456789".indexOf((char) (index + 48)) >= 0) {
             if (index <= 3) {
                 this.board[0][(index - 1) % 3] = symbol;
@@ -28,15 +28,21 @@ public class Spielfeld {
             } else {
                 this.board[2][(index - 1) % 3] = symbol;
             }
-            return true;
         }
-        return false;
     }
 
+    /**
+     * Prüft, ob das Spiel unentschieden ausgegangen ist.
+     * @return boolean
+     */
     public boolean istUnentschieden(){
         return this.anzahlZuege == 9 && ! istGewonnen();
     }
 
+    /**
+     * Prüft, ob das Spiel gewonnen wurde
+     * @return boolean
+     */
     public boolean istGewonnen(){
         if (istGewonnenHorizontal()) return true;
         if (istGewonnenVertikal()) return true;
@@ -105,6 +111,10 @@ public class Spielfeld {
         }
         return spielfeld.toString();
     }
+
+    /**
+     * Setzt, das board wieder auf den Anfangszustand
+     */
 
     public void resetBoard(){
         this.board = new char[][]{
