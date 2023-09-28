@@ -1,6 +1,5 @@
 package spieler;
 
-
 /**
  * Von https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
  * an unser Programm angepasst
@@ -12,17 +11,24 @@ public class GewinnerSpieler extends Spieler{
         int row, col;
     };
 
+    private final String[][] NAMEN = {
+            {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
+            {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
+    };
+
     private final char PLAYER;
     private final char OPPONENT;
-    public GewinnerSpieler(String name, char symbol) {
-        super(name, symbol);
+
+    public GewinnerSpieler(char symbol){
+        super(symbol);
         this.PLAYER = symbol;
-        if (symbol == 'X'){
+        if(symbol == 'X'){
             this.OPPONENT = 'O';
+            this.setName(this.NAMEN[0][(int) (Math.random() * this.NAMEN[0].length)]);
         } else {
             this.OPPONENT = 'X';
+            this.setName(this.NAMEN[1][(int) (Math.random() * this.NAMEN[1].length)]);
         }
-
     }
 
     @Override

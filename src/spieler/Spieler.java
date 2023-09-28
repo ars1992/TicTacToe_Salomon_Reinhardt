@@ -3,9 +3,13 @@ import spielfeld.Spielfeld;
 
 public abstract class Spieler {
 
-    private final String name;
+    private String name;
     private final char symbol;
     private Spielfeld spielfeld;
+
+    public Spieler(char symbol){
+        this.symbol = symbol;
+    }
 
     public Spieler(String name, char symbol){
         this.name = name;
@@ -19,6 +23,10 @@ public abstract class Spieler {
     }
     public String getName(){
         return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public char getSymbol(){

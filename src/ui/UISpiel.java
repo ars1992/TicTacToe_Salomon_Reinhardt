@@ -11,10 +11,7 @@ public class UISpiel extends UIMenu{
     private final Spiel SPIEL;
     private Scanner scanner = new Scanner(System.in);
 
-    private final String[][] NAMEN = {
-            {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
-            {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
-    };
+
     public UISpiel(){
         this.setMenuName("Spiel");
         this.SPIEL = new Spiel();
@@ -57,9 +54,8 @@ public class UISpiel extends UIMenu{
     }
 
     private void initialisiereComputerVsComputer() {
-        String computer1 = this.NAMEN[0][(int) (Math.random() * this.NAMEN[0].length)];
-        String computer2 = this.NAMEN[1][(int) (Math.random() * this.NAMEN[1].length)];
-        this.SPIEL.setSpieler(new GewinnerSpieler(computer1, 'X'), new ZufallsSpieler(computer2, 'O'));
+
+        this.SPIEL.setSpieler(new GewinnerSpieler('X'), new ZufallsSpieler("zzz", 'O'));
     }
 
     private void initialisiereSpielerVsComputer() {
@@ -67,7 +63,7 @@ public class UISpiel extends UIMenu{
         String name = this.scanner.next();
         this.SPIEL.setSpieler(
                 new MenschSpieler(name, 'O'),
-                new GewinnerSpieler(this.NAMEN[0][(int) (Math.random() * this.NAMEN.length)], 'X')
+                new GewinnerSpieler('X')
         );
     }
 

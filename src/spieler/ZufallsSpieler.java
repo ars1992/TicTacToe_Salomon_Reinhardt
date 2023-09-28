@@ -3,7 +3,7 @@ import validieren.Validiere;
 import java.util.Random;
 
 public class ZufallsSpieler extends Spieler{
-    int zufallszahl;
+
     public ZufallsSpieler(String name, char symbol){
         super(name, symbol);
     }
