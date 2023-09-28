@@ -35,7 +35,7 @@ public class Main {
 
             System.out.print("Auswahl: ");
             int eingabe = scanner.nextInt();
-            int geweahltesMenu = --eingabe;
+            int geweahltesMenu = eingabe - 1;
             System.out.println("Ihre Auswahl: " + eingabe);
             System.out.println(menues.get(geweahltesMenu).getMenuName());
             menues.get(geweahltesMenu).zeigeDialog();
