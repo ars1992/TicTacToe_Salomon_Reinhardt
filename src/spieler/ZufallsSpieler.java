@@ -11,7 +11,7 @@ public class ZufallsSpieler extends Spieler{
                 "Werdet einfach Trader",
                 "Ihr seid der Phönix",
                 "Kommt nach Dubai",
-                "90% von euch werden kein Entwickler",
+                "90% von euch werden keine Entwickler",
                 "Macht guten Unterricht, Danke hat spass gemacht"
         };
         this.setName("Yuri - '" + PHRASEN[(int) (Math.random() * PHRASEN.length)] + "'");
