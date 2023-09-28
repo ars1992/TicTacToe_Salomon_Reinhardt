@@ -4,8 +4,17 @@ import java.util.Random;
 
 public class ZufallsSpieler extends Spieler{
 
-    public ZufallsSpieler(String name, char symbol){
-        super(name, symbol);
+    private final String[] PHRASEN = {
+            "Hebt Geld ab und riecht dran",
+            "Werdet einfach Trader",
+            "Ihr seid der Phönix",
+            "Kommt nach Dubai",
+            "90% von euch werden kein Entwickler"
+    };
+
+    public ZufallsSpieler(char symbol){
+        super(symbol);
+        this.setName("Yuri - " + this.PHRASEN[(int) (Math.random() * this.PHRASEN.length)]);
     }
 
     @Override

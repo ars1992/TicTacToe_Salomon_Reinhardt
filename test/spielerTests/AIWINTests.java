@@ -16,7 +16,7 @@ public class AIWINTests {
     @Test
     public void testMacheZug(){
         System.out.println("Testversuch des Menschspielers,der einen Zug zu machen will:");
-        GewinnerSpieler kalkulator = new GewinnerSpieler("Yury", 'X');
+        GewinnerSpieler kalkulator = new GewinnerSpieler('X');
 
         String input = "10";
         System.setIn(new ByteArrayInputStream(input.getBytes()));

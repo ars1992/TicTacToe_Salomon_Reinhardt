@@ -21,8 +21,9 @@ public class UISpiel extends UIMenu{
     public void zeigeDialog() {
         System.out.println("Wie möchten Sie Spielen?");
         System.out.println("1 - Spieler gegen Spieler");
-        System.out.println("2 - Spieler gegen Computer");
-        System.out.println("3 - Computer gegen Computer");
+        System.out.println("2 - Spieler gegen Computer Schwer");
+        System.out.println("3 - Spieler gegen Computer Leicht");
+        System.out.println("4 - Computer gegen Computer");
         loop:
         while (true){
             try {
@@ -34,10 +35,14 @@ public class UISpiel extends UIMenu{
                         break loop;
                     }
                     case 2 -> {
-                        initialisiereSpielerVsComputer();
+                        initialisiereSpielerVsComputerSchwer();
                         break loop;
                     }
                     case 3 -> {
+                        initialisiereSpielerVsComputerLeicht();
+                        break loop;
+                    }
+                    case 4 -> {
                         initialisiereComputerVsComputer();
                         break loop;
                     }
@@ -54,11 +59,10 @@ public class UISpiel extends UIMenu{
     }
 
     private void initialisiereComputerVsComputer() {
-
-        this.SPIEL.setSpieler(new GewinnerSpieler('X'), new ZufallsSpieler("zzz", 'O'));
+        this.SPIEL.setSpieler(new GewinnerSpieler('X'), new ZufallsSpieler('O'));
     }
 
-    private void initialisiereSpielerVsComputer() {
+    private void initialisiereSpielerVsComputerSchwer() {
         System.out.print("Geben Sie Ihren Namen ein: ");
         String name = this.scanner.next();
         this.SPIEL.setSpieler(
@@ -67,6 +71,14 @@ public class UISpiel extends UIMenu{
         );
     }
 
+    private void initialisiereSpielerVsComputerLeicht() {
+        System.out.print("Geben Sie Ihren Namen ein: ");
+        String name = this.scanner.next();
+        this.SPIEL.setSpieler(
+                new MenschSpieler(name, 'O'),
+                new ZufallsSpieler('X')
+        );
+    }
     private void initialisiereSpielerVsSpieler(){
         System.out.print("Geben Sie Ihren Namen ein Spieler 1: ");
         String name1 = this.scanner.next();
