@@ -9,18 +9,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        debugSandro();
-        //debugPascal();
-
-    }
-
-    //danke sandro
-
-    private static void debugPascal() {
-    }
-
-    private static void debugSandro(){
         Scanner scanner = new Scanner(System.in);
         List<UIInterface> menues = new ArrayList<>();
         menues.add(new UISpiel());

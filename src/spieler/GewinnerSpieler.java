@@ -11,23 +11,22 @@ public class GewinnerSpieler extends Spieler{
         int row, col;
     };
 
-    private final String[][] NAMEN = {
-            {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
-            {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
-    };
-
     private final char PLAYER;
     private final char OPPONENT;
 
     public GewinnerSpieler(char symbol){
         super(symbol);
         this.PLAYER = symbol;
+        String[][] NAMEN = {
+                {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
+                {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
+        };
         if(symbol == 'X'){
             this.OPPONENT = 'O';
-            this.setName(this.NAMEN[0][(int) (Math.random() * this.NAMEN[0].length)]);
+            this.setName(NAMEN[0][(int) (Math.random() * NAMEN[0].length)]);
         } else {
             this.OPPONENT = 'X';
-            this.setName(this.NAMEN[1][(int) (Math.random() * this.NAMEN[1].length)]);
+            this.setName(NAMEN[1][(int) (Math.random() * NAMEN[1].length)]);
         }
     }
 
