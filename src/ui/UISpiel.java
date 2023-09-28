@@ -63,28 +63,25 @@ public class UISpiel extends UIMenu{
     }
 
     private void initialisiereSpielerVsComputerSchwer() {
-        System.out.print("Geben Sie Ihren Namen ein: ");
-        String name = this.scanner.next();
         this.SPIEL.setSpieler(
-                new MenschSpieler(name, 'O'),
+                new MenschSpieler(namenEingeben(1), 'O'),
                 new GewinnerSpieler('X')
         );
     }
 
     private void initialisiereSpielerVsComputerLeicht() {
-        System.out.print("Geben Sie Ihren Namen ein: ");
-        String name = this.scanner.next();
         this.SPIEL.setSpieler(
-                new MenschSpieler(name, 'O'),
+                new MenschSpieler(namenEingeben(1), 'O'),
                 new ZufallsSpieler('X')
         );
     }
     private void initialisiereSpielerVsSpieler(){
-        System.out.print("Geben Sie Ihren Namen ein Spieler 1: ");
-        String name1 = this.scanner.next();
-        System.out.print("Geben Sie Ihren Namen ein Spieler 2: ");
-        String name2 = this.scanner.next();
-        this.SPIEL.setSpieler(new MenschSpieler(name1, 'X'), new MenschSpieler(name2, 'O'));
+        this.SPIEL.setSpieler(new MenschSpieler(namenEingeben(1), 'X'), new MenschSpieler(namenEingeben(2), 'O'));
+    }
+
+    private String namenEingeben(int spielerNummer){
+        System.out.print("Geben Sie Ihren Namen ein Spieler " +spielerNummer + ": ");
+        return this.scanner.next();
     }
 
     public Spiel getSpiel(){

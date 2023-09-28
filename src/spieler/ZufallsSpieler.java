@@ -14,7 +14,7 @@ public class ZufallsSpieler extends Spieler{
 
     public ZufallsSpieler(char symbol){
         super(symbol);
-        this.setName("Yuri - " + this.PHRASEN[(int) (Math.random() * this.PHRASEN.length)]);
+        this.setName("Yuri - '" + this.PHRASEN[(int) (Math.random() * this.PHRASEN.length)] + "'");
     }
 
     @Override
