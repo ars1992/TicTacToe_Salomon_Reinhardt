@@ -17,16 +17,16 @@ public class GewinnerSpieler extends Spieler{
     public GewinnerSpieler(char symbol){
         super(symbol);
         this.PLAYER = symbol;
-        String[][] NAMEN = {
+        String[][] namen = {
                 {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
                 {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
         };
         if(symbol == 'X'){
             this.OPPONENT = 'O';
-            this.setName(NAMEN[0][(int) (Math.random() * NAMEN[0].length)]);
+            this.setName(namen[0][(int) (Math.random() * namen[0].length)]);
         } else {
             this.OPPONENT = 'X';
-            this.setName(NAMEN[1][(int) (Math.random() * NAMEN[1].length)]);
+            this.setName(namen[1][(int) (Math.random() * namen[1].length)]);
         }
     }
 

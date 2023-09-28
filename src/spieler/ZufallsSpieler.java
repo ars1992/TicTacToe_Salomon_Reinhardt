@@ -6,7 +6,7 @@ public class ZufallsSpieler extends Spieler{
 
     public ZufallsSpieler(char symbol){
         super(symbol);
-        String[] PHRASEN = {
+        String[] phrasen = {
                 "Hebt Geld ab und riecht dran",
                 "Werdet einfach Trader",
                 "Ihr seid der Phönix",
@@ -14,7 +14,7 @@ public class ZufallsSpieler extends Spieler{
                 "90% von euch werden keine Entwickler",
                 "Macht guten Unterricht, Danke hat spass gemacht"
         };
-        this.setName("Yuri - '" + PHRASEN[(int) (Math.random() * PHRASEN.length)] + "'");
+        this.setName("Yuri - '" + phrasen[(int) (Math.random() * phrasen.length)] + "'");
     }
 
     @Override
