@@ -79,8 +79,13 @@ public class UISpiel extends UIMenu{
         this.SPIEL.setSpieler(new MenschSpieler(namenEingeben(1), 'X'), new MenschSpieler(namenEingeben(2), 'O'));
     }
 
+    /**
+     * Dialog zur Namenseingabe
+     * @param spielerNummer
+     * @return Eingabe des Spielers
+     */
     private String namenEingeben(int spielerNummer){
-        System.out.print("Geben Sie Ihren Namen ein Spieler " +spielerNummer + ": ");
+        System.out.print("Geben Sie Ihren Namen ein Spieler " + spielerNummer + ": ");
         return this.scanner.next();
     }
 

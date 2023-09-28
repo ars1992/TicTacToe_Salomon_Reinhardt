@@ -15,8 +15,7 @@ public abstract class Spieler {
         this.name = name;
         this.symbol = symbol;
     }
-
-
+    
     public abstract int zugMachen();
     public void setSpielfeld(Spielfeld spielfeld){
         this.spielfeld = spielfeld;
