@@ -98,7 +98,7 @@ public class UISpiel extends UIMenu{
      * @return char[] mit zwei werten
      */
     private char[] symbolEingeben(){
-        System.out.print("Welches Symbol möchten Sie? ('X'/'O): ");
+        System.out.print("Welches Symbol möchten Sie? ('X'/'O'): ");
         while (true){
             String eingabe = this.scanner.next().toUpperCase();
             if (eingabe.length() != 1 || "XO".indexOf(eingabe) < 0){
