@@ -3,16 +3,10 @@ package spielerTests;
 import org.junit.*;
 import spieler.MenschSpieler;
 import spieler.Spieler;
-import spieler.ZufallsSpieler;
-
-import java.util.Scanner;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-public class MenschSpielerTest extends SpielerTests {
+public class MenschSpielerTest extends SpielerTest {
 
     @Test
     public void testGetSymbol(){

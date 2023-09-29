@@ -4,7 +4,7 @@ import org.junit.Test;
 import spieler.ZufallsSpieler;
 import static org.junit.Assert.*;
 
-public class zufallsSpielerTest extends SpielerTests{
+public class zufallsSpielerTest extends SpielerTest {
 
     @Test
     public void testKonstruktor(){

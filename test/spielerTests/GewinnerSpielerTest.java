@@ -2,21 +2,16 @@ package spielerTests;
 import spiel.Spiel;
 import spieler.GewinnerSpieler;
 import org.junit.Test;
-import spieler.MenschSpieler;
 import spieler.Spieler;
 import spieler.ZufallsSpieler;
 import spielfeld.Spielfeld;
-import ui.UISpiel;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
-public class AIWINTests {
+public class GewinnerSpielerTest {
 
 
     String[] namen = {

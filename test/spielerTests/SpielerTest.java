@@ -7,7 +7,7 @@ import spieler.ZufallsSpieler;
 import spielfeld.Spielfeld;
 import static org.junit.Assert.*;
 
-public abstract class SpielerTests {
+public abstract class SpielerTest {
 
     @Test
     public  void testKonstruktor(){
@@ -19,7 +19,7 @@ public abstract class SpielerTests {
 
 
     @Test
-    public void testGetName(){                                       //Nur für
+    public void testGetName(){
         Spieler testObjekt = new MenschSpieler( "Marco",'X');
         System.out.println("Test der getName Methode:");
         assertEquals("Hans", testObjekt.getName());
@@ -59,11 +59,8 @@ public abstract class SpielerTests {
 
         @Test
     public void testSetSpielfeld(){
-            Spieler menschSpieler = new MenschSpieler("Marco", 'X');
-            System.out.println("Test setSpielfeld:");
-            //Nicht möglich oder Sandro muss ran.
-
-        }
-
-
+        Spieler menschSpieler = new MenschSpieler("Marco", 'X');
+        System.out.println("Test setSpielfeld:");
+        //Nicht möglich oder Sandro muss ran.
+    }
 }
