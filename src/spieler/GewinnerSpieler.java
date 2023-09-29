@@ -8,7 +8,7 @@ public class GewinnerSpieler extends Spieler{
 
     private static class Move
     {
-        int row, col;
+        public int row, col;
     };
 
     private final char PLAYER;

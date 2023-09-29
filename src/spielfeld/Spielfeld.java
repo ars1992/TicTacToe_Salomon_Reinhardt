@@ -41,6 +41,7 @@ public class Spielfeld {
 
     /**
      * Prüft, ob das Spiel gewonnen wurde
+     * horizontal, vertikal und diagonal
      * @return boolean
      */
     public boolean istGewonnen(){
@@ -50,14 +51,20 @@ public class Spielfeld {
         return istGewonnenDiagonal('O');
     }
 
+    /**
+     * Überprüft, ob das spiel diagonal gewonnen wurde
+     * @return boolean
+     */
     private boolean istGewonnenDiagonal(char symbol) {
-        // ToDo bug fix#
         char[] diagonale1 = {board[0][0], board[1][1], board[2][2]};
         char[] diagonale2 = {board[0][2], board[1][1], board[2][0]};
-
         return Arrays.equals(diagonale1, new char[]{symbol, symbol, symbol}) || Arrays.equals(diagonale2, new char[]{symbol, symbol, symbol});
     }
 
+    /**
+     * Überprüft, ob das spiel vertikal gewonnen wurde
+     * @return boolean
+     */
     private boolean istGewonnenVertikal() {
         int zaehlerX = 0;
         int zaehlerO = 0;
@@ -80,6 +87,10 @@ public class Spielfeld {
         return false;
     }
 
+    /**
+     * Überprüft, ob das Spiel horizontal gewonnen wurde
+     * @return boolean
+     */
     private boolean istGewonnenHorizontal(){
         int zaehlerX = 0;
         int zaehlerO = 0;
@@ -115,7 +126,6 @@ public class Spielfeld {
     /**
      * Setzt, das board wieder auf den Anfangszustand
      */
-
     public void resetBoard(){
         this.board = new char[][]{
                 {'1', '2', '3'},

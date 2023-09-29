@@ -8,6 +8,9 @@ public abstract class UIMenu implements UIInterface {
         this.menuName = menuName;
     }
 
+    /**
+     * Zeigt den Menu Dialog
+     */
     @Override
     public void zeigeDialog(){
         System.out.println("Menu: " + this.getMenuName());
