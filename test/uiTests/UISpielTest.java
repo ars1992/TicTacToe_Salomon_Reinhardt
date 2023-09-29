@@ -1,4 +1,4 @@
-package UITests;
+package uiTests;
 
 import org.junit.Test;
 import spiel.Spiel;

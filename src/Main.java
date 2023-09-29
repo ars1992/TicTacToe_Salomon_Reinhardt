@@ -12,9 +12,12 @@ public class Main {
     private static List<UIInterface> menues = new ArrayList<>();
 
 
-    public static void main(String[] args) {
+    private static void setMenuPunkte(){
         menues.add(new UISpiel());
         menues.add(new UIBeenden());
+    }
+    public static void main(String[] args) {
+        setMenuPunkte();
         while (true){
             System.out.println("Menu:");
             for (int i = 0; i < menues.size(); i++){
@@ -22,21 +25,7 @@ public class Main {
                 UIInterface menu = menues.get(i);
                 System.out.println(menuPunkt + ": " + menu.getMenuName());
             }
-            int eingabe;
-            while (true){
-                System.out.print("Auswahl: ");
-                try{
-                    eingabe = scanner.nextInt();
-                    if(eingabe < 1 || eingabe > menues.size()){
-                        System.out.println("Eingabe nicht möglich");
-                    } else {
-                        break;
-                    }
-                } catch (InputMismatchException ex){
-                    scanner.next();
-                    System.out.println("Bitte nur Zahlen eingeben");
-                }
-            }
+            int eingabe = menuAuswahlTreffen();
             int geweahltesMenu = eingabe - 1;
             System.out.println("Ihre Auswahl: " + eingabe);
             System.out.println(menues.get(geweahltesMenu).getMenuName());
@@ -52,12 +41,29 @@ public class Main {
     }
     private static void neuesSpiel(int geweahltesMenu){
         UISpiel spiel = (UISpiel) menues.get(geweahltesMenu);
-        boolean weiterSpielen = true;
-        while (weiterSpielen){
+        while (true){
             spiel.getSpiel().spielen();
             System.out.print("Möchten Sie weiter spielen (j/n): ");
             if ( ! scanner.next().equalsIgnoreCase("j")){
-                weiterSpielen = false;
+                return;
+            }
+        }
+    }
+
+    private static int menuAuswahlTreffen(){
+        int eingabe;
+        while (true){
+            System.out.print("Auswahl: ");
+            try{
+                eingabe = scanner.nextInt();
+                if(eingabe < 1 || eingabe > menues.size()){
+                    System.out.println("Eingabe nicht möglich");
+                } else {
+                    return eingabe;
+                }
+            } catch (InputMismatchException ex){
+                scanner.next();
+                System.out.println("Bitte nur Zahlen eingeben");
             }
         }
     }
