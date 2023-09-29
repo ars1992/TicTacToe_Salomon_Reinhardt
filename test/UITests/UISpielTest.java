@@ -19,9 +19,9 @@ public class UISpielTest extends UITest{
     @Test
     public void testKonstruktor() {
         System.out.println("Konstruktor-Test:");
-        UIMenu spiel = new UISpiel();
-        assertNotNull(spiel);
-        assertTrue(spiel instanceof UISpiel);
+        UIMenu uiSpiel = new UISpiel();
+        assertNotNull(uiSpiel);
+        assertTrue(uiSpiel instanceof UISpiel);
     }
 
     @Test
