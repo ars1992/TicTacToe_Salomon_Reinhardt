@@ -24,6 +24,10 @@ public abstract class Spieler {
     public void setSpielfeld(Spielfeld spielfeld){
         this.spielfeld = spielfeld;
     }
+    public Spielfeld getSpielfeld(){
+        return this.spielfeld;
+    }
+
     public String getName(){
         return this.name;
     }
@@ -36,7 +40,4 @@ public abstract class Spieler {
         return this.SYMBOL;
     }
 
-    public Spielfeld getSpielfeld(){
-        return this.spielfeld;
-    }
 }

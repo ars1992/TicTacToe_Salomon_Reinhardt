@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<UIInterface> menues = new ArrayList<>();
+
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        List<UIInterface> menues = new ArrayList<>();
         menues.add(new UISpiel());
         menues.add(new UIBeenden());
         while (true){
@@ -40,18 +43,21 @@ public class Main {
             menues.get(geweahltesMenu).zeigeDialog();
 
             if (menues.get(geweahltesMenu).getMenuName().equals("Spiel")){
-                UISpiel spiel = (UISpiel) menues.get(geweahltesMenu);
-                boolean weiterSpielen = true;
-                while (weiterSpielen){
-                    spiel.getSpiel().spielen();
-                    System.out.print("Möchten Sie weiter spielen (j/n): ");
-                    if ( ! scanner.next().equalsIgnoreCase("j")){
-                        weiterSpielen = false;
-                    }
-                }
+                neuesSpiel(geweahltesMenu);
             }
             if(menues.get(geweahltesMenu).istBeendet()){
                 break;
+            }
+        }
+    }
+    private static void neuesSpiel(int geweahltesMenu){
+        UISpiel spiel = (UISpiel) menues.get(geweahltesMenu);
+        boolean weiterSpielen = true;
+        while (weiterSpielen){
+            spiel.getSpiel().spielen();
+            System.out.print("Möchten Sie weiter spielen (j/n): ");
+            if ( ! scanner.next().equalsIgnoreCase("j")){
+                weiterSpielen = false;
             }
         }
     }

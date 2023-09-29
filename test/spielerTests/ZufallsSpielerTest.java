@@ -4,7 +4,11 @@ import org.junit.Test;
 import spieler.ZufallsSpieler;
 import static org.junit.Assert.*;
 
-public class zufallsSpielerTest extends SpielerTest {
+public class ZufallsSpielerTest extends SpielerTest{
+
+    public ZufallsSpielerTest(){
+        super.setSpielerTest(new ZufallsSpieler('X'));
+    }
 
     @Test
     public void testKonstruktor(){
@@ -25,8 +29,4 @@ public class zufallsSpielerTest extends SpielerTest {
         String name = spieler.getName();
         assertTrue(name instanceof String);
     }
-
-
-
-
 }

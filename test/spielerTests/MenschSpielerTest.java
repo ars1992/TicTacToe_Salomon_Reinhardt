@@ -6,7 +6,11 @@ import spieler.Spieler;
 
 import static org.junit.Assert.*;
 
-public class MenschSpielerTest extends SpielerTest {
+public class MenschSpielerTest extends SpielerTest{
+
+    public MenschSpielerTest(){
+        super.setSpielerTest(new MenschSpieler("Ludgar", 'O'));
+    }
 
     @Test
     public void testGetSymbol(){
@@ -16,6 +20,4 @@ public class MenschSpielerTest extends SpielerTest {
         Object symbol = testObjekt.getSymbol();
         assertTrue(symbol instanceof Character);
     }
-
-
 }
