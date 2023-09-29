@@ -24,7 +24,7 @@ public class UISpielTest {
         assertTrue(spiel instanceof UISpiel);
       /*  Class<?> klass = UISpielTest.class;
        * Field erstesfield;
-       * erstesfield = klass.getDeclaredField("menuNameUISpiel");          //to-do
+       * erstesfield = klass.getDeclaredField("menuNameUISpiel");          //schön wäre es.
        * spiel.setMenuName("Test");
        * String menuename =(String) erstesfield.get(spiel.getMenuName());
        */

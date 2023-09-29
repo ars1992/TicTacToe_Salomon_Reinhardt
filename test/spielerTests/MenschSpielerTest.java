@@ -32,7 +32,7 @@ public class MenschSpielerTest extends SpielerTests {
 
     }
 */
-    @Test @Override
+    @Test
     public void testGetSymbol(){
         Spieler testObjekt = new MenschSpieler("Christoph", 'X');
         System.out.println("Test der getSymbol-Methode:");

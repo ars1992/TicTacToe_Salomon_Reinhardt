@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 
 public class zufallsSpielerTest extends SpielerTests{
 
-    @Test@Override
+    @Test
     public void testKonstruktor(){
-        System.out.println("Objekt-Test:");
+        System.out.println("Konstruktor-Test:");
         ZufallsSpieler zufallTestObjekt = new ZufallsSpieler('X');
         assertEquals(zufallTestObjekt.getSymbol(),'X' );
         assertNotNull(zufallTestObjekt);
@@ -19,7 +19,7 @@ public class zufallsSpielerTest extends SpielerTests{
     }
 
 
-    @Override@Test
+    @Test
     public void testGetName(){
         ZufallsSpieler spieler = new ZufallsSpieler('X');
         System.out.println("Test der getName-Methode");
