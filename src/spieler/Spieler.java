@@ -15,7 +15,11 @@ public abstract class Spieler {
         this.name = name;
         this.symbol = symbol;
     }
-    
+
+    /**
+     * Setzt das Symbol auf das Spielfeld
+     * @return int zwischen 1 und 9
+     */
     public abstract int zugMachen();
     public void setSpielfeld(Spielfeld spielfeld){
         this.spielfeld = spielfeld;

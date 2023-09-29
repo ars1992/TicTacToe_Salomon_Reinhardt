@@ -9,7 +9,6 @@ public class Spiel {
     private final Spieler[] SPIELER = new Spieler[2];
 
 
-    // todo konstruktor
     public void setSpieler(Spieler spieler1, Spieler spieler2) {
         this.SPIELER[0] = spieler1;
         this.SPIELER[0].setSpielfeld(this.SPIELFELD);

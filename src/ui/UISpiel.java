@@ -77,6 +77,7 @@ public class UISpiel extends UIMenu{
                 new ZufallsSpieler(symbole[1])
         );
     }
+
     private void initialisiereSpielerVsSpieler(){
         char[] symbole = symbolEingeben();
         this.SPIEL.setSpieler(new MenschSpieler(namenEingeben(1), symbole[0]), new MenschSpieler(namenEingeben(2), symbole[1]));
