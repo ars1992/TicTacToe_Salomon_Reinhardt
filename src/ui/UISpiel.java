@@ -21,8 +21,8 @@ public class UISpiel extends UIMenu{
     public void zeigeDialog() {
         System.out.println("Wie möchten Sie Spielen?");
         System.out.println("1 - Spieler gegen Spieler");
-        System.out.println("2 - Spieler gegen Computer Schwer");
-        System.out.println("3 - Spieler gegen Computer Leicht");
+        System.out.println("2 - Spieler gegen Computer Leicht");
+        System.out.println("3 - Spieler gegen Computer Schwer");
         System.out.println("4 - Computer gegen Computer");
         loop:
         while (true){
@@ -35,11 +35,11 @@ public class UISpiel extends UIMenu{
                         break loop;
                     }
                     case 2 -> {
-                        initialisiereSpielerVsComputerSchwer();
+                        initialisiereSpielerVsComputerLeicht();
                         break loop;
                     }
                     case 3 -> {
-                        initialisiereSpielerVsComputerLeicht();
+                        initialisiereSpielerVsComputerSchwer();
                         break loop;
                     }
                     case 4 -> {
