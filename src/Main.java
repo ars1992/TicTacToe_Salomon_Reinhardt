@@ -2,6 +2,7 @@ import ui.UIBeenden;
 import ui.UIInterface;
 import ui.UISpiel;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,9 +19,21 @@ public class Main {
                 UIInterface menu = menues.get(i);
                 System.out.println(menuPunkt + ": " + menu.getMenuName());
             }
-
-            System.out.print("Auswahl: ");
-            int eingabe = scanner.nextInt();
+            int eingabe;
+            while (true){
+                System.out.print("Auswahl: ");
+                try{
+                    eingabe = scanner.nextInt();
+                    if(eingabe < 1 || eingabe > menues.size()){
+                        System.out.println("Eingabe nicht möglich");
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException ex){
+                    scanner.next();
+                    System.out.println("Bitte nur Zahlen eingeben");
+                }
+            }
             int geweahltesMenu = eingabe - 1;
             System.out.println("Ihre Auswahl: " + eingabe);
             System.out.println(menues.get(geweahltesMenu).getMenuName());
