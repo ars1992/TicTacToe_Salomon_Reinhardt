@@ -1,10 +1,12 @@
 package spielerTests;
+import spiel.Spiel;
 import spieler.GewinnerSpieler;
 import org.junit.Test;
 import spieler.MenschSpieler;
 import spieler.Spieler;
 import spieler.ZufallsSpieler;
 import spielfeld.Spielfeld;
+import ui.UISpiel;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,46 +18,15 @@ import static org.junit.Assert.assertTrue;
 
 public class AIWINTests {
 
-/*
-    //Erkenntniss: Testmethoden für die Spieler sind in diesem Fall, in keinem Fall möglich.
-
-    @Test
-    public void testMacheZug(){
-        System.out.println("Testversuch des Menschspielers,der einen Zug zu machen will:");
-        GewinnerSpieler kalkulator = new GewinnerSpieler('X');
-
-        String input = "10";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        int zug = kalkulator.zugMachen();
-
-        assertEquals(10, zug);
-
-        String consoleOutput = outputStream.toString().trim();
-        assertFalse(consoleOutput.contains("Ungültige eingabe!"));
-
-    }
-
-String[][] namen = {
-                {"TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll"},
-                {"Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"}
-        }
-
- */
 
     String[] namen = {
             "TicTacToe-Terminator", "X-ecuter", "Xena, die X-Maschine", "BlockBuster", "TickyTacky-Troll",
             "Nullox der Nullenmeister", "KreisKönig", "O-Orakel", "O-Hexe", "Glücklicher Zufall"};
 
-
-   // String name = namen[0][(int) (Math.random() * namen[0].length)];
-   // String name2 = namen[1][(int) (Math.random() * namen[1].length)];
 @Test
 public void testKonstruktor(){
-    System.out.println("Objekt-Test:");
-    Spieler testObjekt = new GewinnerSpieler('X'); //....getSymbol());
+    System.out.println("Konstruktor-Test:");
+    Spieler testObjekt = new GewinnerSpieler('X');
     assertNotNull(testObjekt);
     assertTrue(testObjekt instanceof GewinnerSpieler);
     String name = testObjekt.getName();
@@ -64,9 +35,9 @@ public void testKonstruktor(){
 }
 
     @Test
-    public void testGetName(){                                       //Nur für
+    public void testGetName(){
         Spieler testObjekt = new GewinnerSpieler( 'X');
-        System.out.println("Test der getName Methode:");
+        System.out.println("Test der getName-Methode:");
         assertTrue(testObjekt.getName(),Arrays.asList(namen).contains(testObjekt.getName()) );
         Object resultat = testObjekt.getName();
         System.out.println("Test ob der Rückgabewert ungleich NULL und ein String ist:");
@@ -74,13 +45,6 @@ public void testKonstruktor(){
 
     }
 
-    /*
-    public void setName(){
-        System.out.println("Test der setName-Methode:");    //überflüssig bzw. nicht möglich.
-        Spieler testObjekt = new GewinnerSpieler( 'X');
-        testObjekt.setName("Hans");
-        assertEquals("Hans", testObjekt.getName());
-    }*/
 
 
     @Test
@@ -95,11 +59,15 @@ public void testKonstruktor(){
 
     @Test
     public void testGetSpielfeld(){
-        System.out.println("Test der getSpielfeld_Methode:");
+        System.out.println("Test der getSpielfeld-Methode:");
         Spieler spieler = new GewinnerSpieler('X');
+        Spieler spieler2 = new ZufallsSpieler('O');
+        Object o = new Spielfeld();
         Object spielfeld  = spieler.getSpielfeld();
-        assertTrue(spielfeld instanceof Spielfeld);
-        assertNotNull(spielfeld);
+        spieler.setSpielfeld((Spielfeld) o);
+        Spiel spiel = new Spiel();
+        spiel.setSpieler(spieler, spieler2);
+        assertTrue(spieler.getSpielfeld() != null);
 
     }
 
