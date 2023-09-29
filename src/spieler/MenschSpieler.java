@@ -1,7 +1,5 @@
-
 package spieler;
 
-import spielfeld.Spielfeld;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import validieren.Validiere;

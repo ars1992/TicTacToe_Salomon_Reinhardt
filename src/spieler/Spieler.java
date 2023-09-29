@@ -4,16 +4,16 @@ import spielfeld.Spielfeld;
 public abstract class Spieler {
 
     private String name;
-    private final char symbol;
+    private final char SYMBOL;
     private Spielfeld spielfeld;
 
     public Spieler(char symbol){
-        this.symbol = symbol;
+        this.SYMBOL = symbol;
     }
 
     public Spieler(String name, char symbol){
         this.name = name;
-        this.symbol = symbol;
+        this.SYMBOL = symbol;
     }
 
     /**
@@ -33,7 +33,7 @@ public abstract class Spieler {
     }
 
     public char getSymbol(){
-        return this.symbol;
+        return this.SYMBOL;
     }
 
     public Spielfeld getSpielfeld(){

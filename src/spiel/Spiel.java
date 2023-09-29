@@ -1,5 +1,4 @@
 package spiel;
-
 import spieler.Spieler;
 import spielfeld.Spielfeld;
 
