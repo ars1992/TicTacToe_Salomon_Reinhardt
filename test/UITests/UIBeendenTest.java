@@ -2,8 +2,6 @@ package UITests;
 
 import org.junit.Test;
 import ui.UIMenu;
-import ui.UISpiel;
-
 import static org.junit.Assert.*;
 
 public class UIBeendenTest {

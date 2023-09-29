@@ -1,9 +1,7 @@
 package spielerTests;
-import org.junit.Assert.*;
-import org.junit.Test;
-import spieler.MenschSpieler;
-import spieler.ZufallsSpieler;
 
+import org.junit.Test;
+import spieler.ZufallsSpieler;
 import static org.junit.Assert.*;
 
 public class zufallsSpielerTest extends SpielerTests{
